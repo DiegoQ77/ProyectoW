@@ -1,0 +1,388 @@
+/*GENERALES*/
+
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif, Helvetica, Arial;
+}
+
+body{
+    background: url(../img/bg.png);
+}
+
+a{
+    color: #01B1EA;
+}
+
+a:visited{
+    color: #01B1EA;
+}
+
+a:hover{
+    color: #555555;
+}
+
+.alert_green{
+    color:green;
+}
+
+.alert_red{
+    color:red;
+}
+
+table{
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+
+td{
+    border-top: 1px solid #ccc;
+    padding: 2px;
+}
+
+.thumb{
+    width: 100px;
+}
+
+/*CONTAINER*/
+#container{
+   width: 80%;
+   margin: 0px auto;
+   box-shadow: 0px 0px 10px gray;
+   background: white;
+}
+
+/*HEADER*/
+
+#header{
+    height: 145px;
+    background: #F0F0F0;
+}
+
+#logo{
+    padding: 20px;
+    margin-left: 20px;
+   
+   
+}
+
+#logo img{
+    float:left;
+    height: 100px;
+}
+
+#logo a{
+    float:left;
+    font-size: 40px;
+    letter-spacing: 4px;
+    font-family: 'Open Sans', Helvetica, Arial;
+    text-transform: uppercase;
+    color: #01B1EA;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 18px;
+    margin-left: 25px;
+    text-shadow: 0px 2px 1px #222222;
+    transition: all 300ms;
+}
+
+#logo a:hover{
+    text-shadow: 0px 2px 1px #222222, 0px 0px 4px #01B1EA;
+}
+
+/*MENU*/
+#menu{
+    clear:both;
+    background: #222;
+    color: white;
+    height: 55px;
+    border-bottom: 4px solid #01B1EA;
+    
+}
+
+#menu ul{
+    list-style: none;
+    text-decoration: none;
+    margin: 0px auto;
+    margin-left: 25px;
+    float: right;
+}
+
+#menu ul li{
+    line-height: 55px;
+    float:left;
+    border-right: 1px solid #363636;
+}
+
+#menu a{
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding-left: 12px;
+    padding-right: 12px;
+    transition: all 300ms;
+}
+
+#menu a:first-child{
+   border-left: 1px solid #363636; 
+}
+
+#menu a:hover{
+    background: #01B1EA;
+}
+
+/*CONTENT*/
+#content{
+    margin: 0px auto;
+    overflow: hidden;
+    background: white;
+}
+
+/*BARRA LATERAL*/
+#lateral{
+    width: 22%;
+    min-height: 500px;
+    float: left;
+    margin-top:20px;
+    margin-left: 10px;
+}
+
+#lateral .block_aside{
+    display: block;
+    width: 90%;
+    margin: 5px auto;
+    padding: 10px;
+}
+
+#lateral h3{
+    display: block;
+    color: #222;
+    width: 100%;
+    text-align: center;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #E1E1E1;
+    border-bottom: 2px solid #01B1EA;
+}
+
+#lateral ul{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#lateral ul li{
+    list-style: square;
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+input[type="button"],
+input[type="submit"],
+button, .button{
+    display: block;
+    border-radius: 2px;
+    width: auto;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    background: #2979CD;
+    border: 1px solid #11608E;
+    cursor:pointer;
+}
+
+.button{
+    background: #33AE3D;
+    color: white !important;
+    text-decoration: none;
+}
+
+
+
+
+
+
+/*CENTRAL*/
+#central{
+    width: 100%;
+    min-height: 600px;
+    float: right;
+    border-left: 1px solid #ccc;
+    box-shadow: -5px -1px 5px #ddd;
+    padding:2px;
+}
+
+
+
+
+
+/*Central Estilos para nuestro slider*/
+
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+
+
+/*FOOTER*/
+#footer{
+    clear: both;
+    text-align: center;
+    padding-top:10px;
+    padding-bottom: 10px;
+    color: white;
+    background: #222222;
+    border-top: 4px solid #01B1EA;
+}
+
+/*CARRITO*/
+.delete-carrito{
+   width: 295px;
+   float: left; 
+}
+
+.button-delete{
+    display: block;
+    float: left;
+    width: 100px;
+}
+
+.button-carrito{
+    width: 70px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.total-carrito{
+   width: 295px;
+   float: right; 
+}
+
+.total-carrito h3{
+    display: block;
+    float:left;
+    margin-top: 5px;
+}
+
+.button-pedido{
+    display: block;
+    float: right;
+    width: 100px;
+}
+
+.updown-unidades{
+    width: 80px;
+    margin: 0px auto;
+}
+
+.updown-unidades .button{
+    display: block;
+    width: 20px;
+    float: left;
+    padding:2px;
+    margin: 7px;
+}

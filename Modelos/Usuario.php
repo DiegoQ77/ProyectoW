@@ -1,11 +1,25 @@
 <?php
 
 
+require_once 'Conexion.php';
+
 class Usuario{
-    public $nombre;
-    public $apellidos;
-    public $email;
-    public $password;
+    private $nombre;
+    private $apellidos;
+    private $email;
+    private $password;
+    private $permiso;
+    
+    
+    
+    function getPermiso() {
+        return $this->permiso;
+    }
+
+    function setPermiso($permiso) {
+        $this->permiso = $permiso;
+    }
+   
     
     function getNombre() {
         return $this->nombre;
@@ -20,6 +34,9 @@ class Usuario{
     }
 
     function getPassword() {
+        
+        
+        
         return $this->password;
     }
 
@@ -41,11 +58,21 @@ class Usuario{
 
 
     
-    public function conseguirTodos(){
-        return "Sacando todos lows usuarios";
+    
+    //Funcion para comprobar login
+   
+    public function login(){
+        $result = false;
+        $usuario = $this->usuario;
+        $password = $this->password;
+        //Comprobamos si existe el usuario en proceso ya lo termino
+        $sql = "SELECT  FROM usuarios WHERE usuario = $usuario";
+        
+        
+        
         
     }
     
-    
+ 
     
 }

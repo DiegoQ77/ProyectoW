@@ -16,7 +16,11 @@ class Equipo {
     public function añadirEquipo($modelodatos){
         $conexion = new Conexion();
         $db = $conexion->conectar();
-        $sql = "INSERT INTO equipos (codigo,nombre,cantidad,especificaciones,disponibilidad, encargado, contacto, categoria) VALUES('$modelodatos[codigo]' , '$modelodatos[nombre]','$modelodatos[cantidad]','$modelodatos[especificacion]','$modelodatos[disponibilidad]','$modelodatos[encargado]','$modelodatos[contacto]','$modelodatos[categoria]')";
+        $sql = 
+         "INSERT INTO equipos (codigo,nombre,cantidad,especificaciones,disponibilidad, encargado, contacto, categoria) VALUES"
+                . "('$modelodatos[codigo]' , '$modelodatos[nombre]','$modelodatos[cantidad]',"
+                . "'$modelodatos[especificacion]','$modelodatos[disponibilidad]','$modelodatos[encargado]',"
+                . "'$modelodatos[contacto]','$modelodatos[categoria]')";
         $db->query($sql);
         $db->close();
     }
