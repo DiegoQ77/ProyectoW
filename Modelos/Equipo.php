@@ -12,12 +12,28 @@ class Equipo {
         return $equipo;
         $db->close();
     }
+    
+    public function ordenarEquipos($id) {
+        $conexion = new Conexion();
+        $db = $conexion->conectar();
+        $sql = "SELECT * FROM equipos ORDER BY {$id} ASC";
+        foreach ($db->query($sql) as $res) {
+            $equipo[] = $res;
+        }
+        return $equipo;
+        $db->close();
+    }
 
     public function añadirEquipo($modelodatos){
         $conexion = new Conexion();
         $db = $conexion->conectar();
-        $sql = "INSERT INTO equipos (codigo,nombre,cantidad,especificaciones,disponibilidad, encargado, contacto, categoria) VALUES('$modelodatos[codigo]' , '$modelodatos[nombre]','$modelodatos[cantidad]','$modelodatos[especificacion]','$modelodatos[disponibilidad]','$modelodatos[encargado]','$modelodatos[contacto]','$modelodatos[categoria]')";
-        $db->query($sql);
+        $sql = "INSERT INTO equipos (nombre,cantidad,especificaciones,disponibilidad, encargado, contacto, categoria) VALUES('$modelodatos[nombre]','$modelodatos[cantidad]','$modelodatos[especificacion]','$modelodatos[disponibilidad]','$modelodatos[encargado]','$modelodatos[contacto]','$modelodatos[categoria]')";
+        if($db->query($sql) === TRUE) {
+            return 'success';
+        }
+        else{
+            return $db->error;
+        }
         $db->close();
     }
 
@@ -35,7 +51,12 @@ class Equipo {
         $conexion = new Conexion();
         $db = $conexion->conectar();
         $sql = "UPDATE equipos SET nombre = '$modelodatos[nombre]', cantidad = '$modelodatos[cantidad]', especificaciones = '$modelodatos[especificacion]', disponibilidad = '$modelodatos[disponibilidad]', encargado = '$modelodatos[encargado]', contacto = '$modelodatos[contacto]', categoria = '$modelodatos[categoria]'WHERE codigo = $modelodatos[id]";
-        $db->query($sql);
+        if($db->query($sql) === TRUE) {
+            return 'success';
+        }
+        else{
+            return $db->error;
+        }
         $db->close();
     }
 
@@ -43,7 +64,12 @@ class Equipo {
         $conexion = new Conexion();
         $db = $conexion->conectar();
         $sql = "DELETE FROM equipos WHERE codigo = {$id}";
-        $db->query($sql);
+        if($db->query($sql) === TRUE) {
+            return 'success';
+        }
+        else{
+            return $db->error;
+        }
         $db->close();
     }
 }

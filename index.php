@@ -1,3 +1,3 @@
 
 
-<h1>Hola mundo php Pantalla principal</h1>
+<a href='../Vistas/Inventario.php'><button type='button'>Home</button></a>

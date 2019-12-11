@@ -29,20 +29,27 @@
 	<table border="1" cellspacing="0" cellpadding="0">
 		<thead>
 			<tr>
-				<th>Codigo</th>
-				<th>Nombre</th>
-				<th>Cantidad</th>
-				<th>Especificaciones</th>
-				<th>Disponibilidad</th>
-				<th>Encargado</th>
-				<th>Contacto</th>
-				<th>Categoria</th>
+				<th><a href = 'Inventario.php?id=codigo'>Codigo</a></th>
+				<th><a href = 'Inventario.php?id=nombre'>Nombre</a></th>
+				<th><a href = 'Inventario.php?id=cantidad'>Cantidad</a></th>
+				<th><a href = 'Inventario.php?id=especificaciones'>Especificaciones</a></th>
+				<th><a href = 'Inventario.php?id=disponibilidad'>Disponibilidad</a></th>
+				<th><a href = 'Inventario.php?id=encargado'>Encargado</a></th>
+				<th><a href = 'Inventario.php?id=contacto'>Contacto</a></th>
+				<th><a href = 'Inventario.php?id=categoria'>Categoria</a></th>
+				<th><a href = 'Inventario.php?id=created_at'>Creado</a></th>
+				<th><a href = 'Inventario.php?id=updated_at'>Actualizado</a></th>
 				<th>Acciones</th>
 			</tr>
 		</thead>
 		<tbody>
 		 <?php 
-			 $datos = $control->obtenerListaEquipos();
+		 	if(isset($_GET['id'])){
+				$datos = $control->ordenarListaEquipos();
+			 }
+			else{
+				 $datos = $control->obtenerListaEquipos();
+			}
                     for ($i = 0; $i < count($datos); $i++) {
                         ?>
                         <tr>
@@ -54,6 +61,8 @@
 							<td><?php echo $datos[$i]["encargado"]; ?></td>
 							<td><?php echo $datos[$i]["contacto"]; ?></td>
 							<td><?php echo $datos[$i]["categoria"]; ?></td>
+							<td><?php echo $datos[$i]["created_at"]; ?></td>
+							<td><?php echo $datos[$i]["updated_at"]; ?></td>
 							<?php echo"
 							<td>
 							<a href='Editar_Equipo.php?id=".$datos[$i]["codigo"]."'><button type='button'>Editar</button></a>
