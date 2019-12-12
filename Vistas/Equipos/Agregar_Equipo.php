@@ -22,11 +22,7 @@
 	<legend>Agregar</legend>
 
 	<form action="Creado.php" method="post">
-		<table cellspacing="0" cellpadding="0">
-			<tr>
-				<th>Codigo</th>
-				<td><input type="text" name="codigo" /></td>
-			</tr>		
+		<table cellspacing="0" cellpadding="0">	
 			<tr>
 				<th>Nombre</th>
 				<td><input type="text" name="nombre"  /></td>

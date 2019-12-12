@@ -1,4 +1,4 @@
-<?php require_once("../Modelos/Equipo.php");
+<?php require_once("../../Modelos/Equipo.php");
 
     Class Control_Inventario{
 
@@ -6,11 +6,20 @@
             $equipo = new Equipo();
             return $equipo->obtenerEquipos();
     }
+        public function ordenarListaEquipos($id, $orden) {
+            $equipo = new Equipo();
+            return $equipo->ordenarEquipos($id, $orden);
+    }
 
+        public function filtrarListaEquipos(){
+            $equipo = new Equipo();
+            $consulta = $_POST['consulta'];
+            $respuesta = $equipo->filtrarEquipos($consulta);
+            return $respuesta;
+        }
         public function ctlAgregarEquipo(){
             $equipo = new Equipo();
             $datoscontrol = array(
-                'codigo' => $_POST['codigo'],
                 'nombre'=> $_POST['nombre'],
                 'cantidad' => $_POST['cantidad'],
                 'especificacion' => $_POST['especificacion'],
@@ -19,7 +28,8 @@
                 'contacto' => $_POST['contacto'],
                 'categoria' => $_POST['categoria']
             );
-           $equipo->añadirEquipo($datoscontrol);
+           $respuesta = $equipo->añadirEquipo($datoscontrol);
+           return $respuesta;
         }
 
         public function recuperarEquipo($id){
@@ -39,13 +49,15 @@
                 'contacto' => $_POST['contacto'],
                 'categoria' => $_POST['categoria']
             );
-           $equipo->editarEquipo($datoscontrol);
+            $respuesta = $equipo->editarEquipo($datoscontrol);
+            return $respuesta;
         }
 
         public function ctlEliminarEquipo(){
             $equipo = new Equipo();
             $id = $_POST['id'];
-            $equipo -> eliminarEquipo($id);
+            $respuesta = $equipo->eliminarEquipo($id);
+            return $respuesta;
         }
     }
 ?>

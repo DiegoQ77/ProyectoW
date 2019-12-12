@@ -67,12 +67,7 @@ class Usuario{
         $password = $this->password;
         //Comprobamos si existe el usuario en proceso ya lo termino
         $sql = "SELECT  FROM usuarios WHERE usuario = $usuario";
-        
-        
-        
-        
     }
     
- 
     
 }

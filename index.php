@@ -1,8 +1,12 @@
+<?php 
+	session_start();
+	$_SESSION['orden'] = 'ASC';
+?>
 <!DOCTYPE HTML>
 <html lang="es">
     <head>
         <meta charset="utf-8"/>
-        <title>Tienda de CAMISETAS</title>
+        <title>Inventario</title>
         <link rel = "stylesheet" href="assets/css/indexcss.css">
     </head>
     <body>
@@ -17,13 +21,13 @@
                 <nav id="menu">
                 <ul>
                     <li>
-                        <a href="#">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="#">Inventario</a>
+                        <a href="../../Vistas/Equipos/Inventario.php">Inventario</a>
                     </li>
                     <li>
-                        <a href="#">Acceder</a>
+                        <a href="../../Vistas/usuarios/login.php">Acceder</a>
                     </li>
                    
                 </ul>
