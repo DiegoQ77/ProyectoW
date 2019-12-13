@@ -23,7 +23,7 @@
                         <a href="#">Inventario</a>
                     </li>
                     <li>
-                        <a href="#">Acceder</a>
+                        <a href="http://localhost/Master-php/PROYECTO/Vistas/usuarios/login.php">Acceder</a>
                     </li>
                    
                 </ul>

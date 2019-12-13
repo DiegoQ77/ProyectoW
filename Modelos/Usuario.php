@@ -1,78 +1,27 @@
 <?php
 
 
-require_once 'Conexion.php';
-
-class Usuario{
-    private $nombre;
-    private $apellidos;
-    private $email;
-    private $password;
-    private $permiso;
-    
-    
-    
-    function getPermiso() {
-        return $this->permiso;
-    }
-
-    function setPermiso($permiso) {
-        $this->permiso = $permiso;
-    }
-   
-    
-    function getNombre() {
-        return $this->nombre;
-    }
-
-    function getApellidos() {
-        return $this->apellidos;
-    }
-
-    function getEmail() {
-        return $this->email;
-    }
-
-    function getPassword() {
-        
-        
-        
-        return $this->password;
-    }
-
-    function setNombre($nombre) {
-        $this->nombre = $nombre;
-    }
-
-    function setApellidos($apellidos) {
-        $this->apellidos = $apellidos;
-    }
-
-    function setEmail($email) {
-        $this->email = $email;
-    }
-
-    function setPassword($password) {
-        $this->password = $password;
-    }
+require_once("Conexion.php");
 
 
-    
-    
-    //Funcion para comprobar login
-   
-    public function login(){
-        $result = false;
-        $usuario = $this->usuario;
-        $password = $this->password;
-        //Comprobamos si existe el usuario en proceso ya lo termino
-        $sql = "SELECT  FROM usuarios WHERE usuario = $usuario";
-        
-        
-        
+class Usuario{  
+    public function login($username, $password){ 
+      $conexion = new Conexion();
+      $db = $conexion->conectar();  
+      $sql = "SELECT * FROM users WHERE user = '$username' AND password ='$password'";
+
+        $result = $db->query($sql);
+            $numRows = $result->num_rows;
+            if($numRows == 1){
+                return true;
+                }
+            return false;
         
     }
     
  
     
 }
+
+
+   
