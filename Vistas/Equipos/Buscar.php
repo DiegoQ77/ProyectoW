@@ -31,7 +31,7 @@
 	if(isset($_POST['pagina'])){
 		$control->cambiarPagina();
 	}
-    if (isset($_POST['consulta'])) {
+    if (isset($_POST['consulta'])){
 		$datos = $control->filtrarListaEquipos();
 	}
 	else if(!empty($_SESSION['id'])){
@@ -41,6 +41,8 @@
 		$datos = $control->obtenerListaEquipos();
 	 }
 	 if(is_array($datos)){
+		$_SESSION['datos'] = count($datos);
+		$_SESSION['matriz'] = $datos;
 		 ?>
 		<table border="1" cellspacing="0" cellpadding="0">
 		<thead>

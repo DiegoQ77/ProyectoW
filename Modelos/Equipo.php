@@ -37,23 +37,6 @@ class Equipo {
         $db->close();
     }
 
-    public function filtrarEquipos($consulta,$inicio,$final,$id, $orden){
-        $conexion = new Conexion();
-        $db = $conexion->conectar();
-        $q = $db->real_escape_string($consulta);
-    $sql = "SELECT * FROM equipos WHERE codigo LIKE '%$q%' OR nombre LIKE '%$q%' OR cantidad LIKE '%$q%' OR especificaciones LIKE '%$q%' OR disponibilidad LIKE '%$q%' OR encargado LIKE '$q' OR contacto LIKE '$q' OR categoria LIKE '$q' ORDER BY {$id} {$orden} LIMIT {$final}";
-        foreach ($db->query($sql) as $res) {
-            $equipo[] = $res;
-        }
-        if(empty($equipo)){
-            return "No hay Datos";
-        }
-        else{
-            return $equipo;
-        }
-        $db->close();
-    }
-
     public function buscarEquipos($id){
         $conexion = new Conexion();
         $db = $conexion->conectar();

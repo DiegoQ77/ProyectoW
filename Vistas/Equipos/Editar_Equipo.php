@@ -2,7 +2,7 @@
 
 require_once("../../Controladores/Control_Inventario.php");
 $control = new Control_Inventario();
-$data = $control->recuperarEquipo($_GET['id']);
+$data = $control->recuperarEquipo();
 ?>
 
 <!DOCTYPE html>

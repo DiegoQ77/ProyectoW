@@ -6,11 +6,11 @@
 		$respuesta = $control->ctlAgregarEquipo();
 		if($respuesta == 'success'){
 			echo "<p>Nuevo registro creado..</p>";
-			echo "<a href='../../Vistas/Equipos/Inventario.php'><button type='button'>Home</button></a>";
+			echo "<a href='../../Vistas/Equipos/location.php'><button type='button'>Home</button></a>";
 		}
 		else{
 			echo "El manejador de Base de Datos ha arrojado el siguiente error: <br>".$respuesta ;
-			echo "<a href='../../Vistas/Equipos/Inventario.php'><button type='button'>Home</button></a>";
+			echo "<a href='../../Vistas/Equipos/location.php'><button type='button'>Home</button></a>";
 		}
 	} 
 

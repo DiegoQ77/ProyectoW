@@ -22,7 +22,7 @@
                 $_SESSION['inicio']=$_SESSION['inicio'] - $_SESSION['cantidad'];
                 $_SESSION['pagina'] = $_SESSION['pagina'] -1;
             }
-            else if($_POST['pagina']=='siguiente'){
+            else if($_POST['pagina']=='siguiente' && $_SESSION['cantidad'] ==$_SESSION['datos'] ){
                    $_SESSION['inicio']=$_SESSION['inicio'] + $_SESSION['cantidad'];
                    $_SESSION['pagina'] = $_SESSION['pagina'] + 1;
             }
@@ -35,14 +35,29 @@
 
         public function filtrarListaEquipos(){
             $equipo = new Equipo();
-            $id = $_SESSION['id'];
-            $orden = $_SESSION['orden'];
             $consulta = $_POST['consulta'];
-            $inicio= $_SESSION['inicio'];
-            $final= $_SESSION['cantidad'];
-            $respuesta = $equipo->filtrarEquipos($consulta, $inicio,$final,$id,$orden);
-            return $respuesta;
+            $data = $_SESSION['matriz'];
+            $result = array_values(array_filter($data, function ($item) use ($consulta) {
+            if (stripos($item['codigo'], $consulta) !== false ||
+                stripos($item['nombre'], $consulta) !== false ||
+                stripos($item['cantidad'], $consulta) !== false ||
+                stripos($item['especificaciones'], $consulta) !== false ||
+                stripos($item['disponibilidad'], $consulta) !== false ||
+                stripos($item['encargado'], $consulta) !== false ||
+                stripos($item['contacto'], $consulta) !== false ||
+                stripos($item['categoria'], $consulta) !== false) {
+                return true;
+            }
+            return false;
+            }));
+            if(empty($result)){
+                return "No hay Datos";
+            }
+            else{
+                return $result;
+            }
         }
+
         public function ctlAgregarEquipo(){
             $equipo = new Equipo();
             $datoscontrol = array(
@@ -58,8 +73,9 @@
            return $respuesta;
         }
 
-        public function recuperarEquipo($id){
+        public function recuperarEquipo(){
             $equipo = new Equipo();
+            $id = $_GET['id'];
             return $equipo->buscarEquipos($id);
         }
 
