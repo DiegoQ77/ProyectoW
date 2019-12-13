@@ -8,7 +8,12 @@ class Facultades {
         foreach ($db->query($sql) as $res) {
             $facultades[] = $res;
         }
-        return $facultades;
+        if(empty($facultades)){
+            return "No hay Datos";
+        }
+        else{
+            return $facultades;
+        }
         $db->close();
     }
 }

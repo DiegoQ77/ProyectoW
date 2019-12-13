@@ -9,7 +9,12 @@ class Equipo {
         foreach ($db->query($sql) as $res) {
             $equipo[] = $res;
         }
-        return $equipo;
+        if(empty($equipo)){
+            return "No hay Datos";
+        }
+        else{
+            return $equipo;
+        }
         $db->close();
     }
 
@@ -19,7 +24,12 @@ class Equipo {
         $sql = "SELECT imagen FROM equipos WHERE codigo = $id";
         $resultado=$db->query($sql);
         $datos = mysqli_fetch_assoc($resultado);
-        return $datos;
+        if(empty($datos)){
+            return "No hay Datos";
+        }
+        else{
+            return $datos;
+        }
     }
     
     public function ordenarEquipos($id, $orden, $inicio, $final) {
@@ -29,7 +39,12 @@ class Equipo {
         foreach ($db->query($sql) as $res) {
             $equipo[] = $res;
         }
-        return $equipo;
+        if(empty($equipo)){
+            return "No hay Datos";
+        }
+        else{
+            return $equipo;
+        }
         $db->close();
     }
 
@@ -79,6 +94,19 @@ class Equipo {
         else{
             return $db->error;
         }
+        $db->close();
+    }
+
+    public function corregirIncremento(){
+        $conexion = new Conexion();
+        $db = $conexion->conectar();
+        $sql = "SELECT * FROM equipos ORDER BY codigo DESC LIMIT 0,1";
+        $resp = $db->query($sql);
+        while($row = mysqli_fetch_assoc($resp)){
+            $ultimo_id = $row["codigo"];
+        }
+        $sql = "ALTER TABLE equipos AUTO_INCREMENT = $ultimo_id";
+        $db->query($sql);
         $db->close();
     }
 }

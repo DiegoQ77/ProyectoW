@@ -8,7 +8,12 @@ class Sedes {
         foreach ($db->query($sql) as $res) {
             $sedes[] = $res;
         }
-        return $sedes;
+        if(empty($sedes)){
+            return "No hay Datos";
+        }
+        else{
+            return $sedes;
+        }
         $db->close();
     }
 }

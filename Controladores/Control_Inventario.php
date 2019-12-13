@@ -11,45 +11,25 @@ require_once("../../Modelos/Facultades.php");
             $inicio = $_SESSION['inicio'];
             $final= $_SESSION['cantidad'];
             $result =  $equipo->obtenerEquipos($inicio, $final);
-            if(empty($result)){
-                return "No hay Datos";
-            }
-            else{
-                return $result;
-            }
+            return $result;
     }
         public function obtenerListaPersonas(){
             $persona = new Personas();
             $result = $persona->obtenerPersonas();
-            if(empty($result)){
-                return "No hay Datos";
-            }
-            else{
-                return $result;
-            }
+            return $result;
         }
 
         public function obtenerListaSedes(){
             $sede = new Sedes();
             $result = $sede->obtenerSedes();
-            if(empty($result)){
-                return "No hay Datos";
-            }
-            else{
-                return $result;
-            }
+            return $result;
         }
 
         public function obtenerListaFacultades(){
             $facultad = new Facultades();
             $result = $facultad->obtenerFacultades();
-            if(empty($result)){
-                return "No hay Datos";
+            return $result;
             }
-            else{
-                return $result;
-            }
-        }
 
         public function ordenarListaEquipos() {
             $equipo = new Equipo();
@@ -58,13 +38,8 @@ require_once("../../Modelos/Facultades.php");
             $inicio = $_SESSION['inicio'];
             $final= $_SESSION['cantidad'];
             $result =  $equipo->ordenarEquipos($id, $orden, $inicio, $final);
-            if(empty($result)){
-                return "No hay Datos";
+            return $result;
             }
-            else{
-                return $result;
-            }
-    }
         
         public function cambiarPagina(){
             if($_POST['pagina']=='anterior' && $_SESSION['pagina']>1){
@@ -157,6 +132,11 @@ require_once("../../Modelos/Facultades.php");
             $id = $_POST['id'];
             $respuesta = $equipo->eliminarEquipo($id);
             return $respuesta;
+        }
+
+        public function corregirIncremento(){
+            $equipo = new Equipo();
+            $equipo->corregirIncremento();
         }
     }
 ?>

@@ -8,7 +8,12 @@ class Personas {
         foreach ($db->query($sql) as $res) {
             $personas[] = $res;
         }
-        return $personas;
+        if(empty($personas)){
+            return "No hay Datos";
+        }
+        else{
+            return $personas;
+        }
         $db->close();
     }
 }

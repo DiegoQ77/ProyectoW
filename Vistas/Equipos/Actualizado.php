@@ -9,6 +9,7 @@
 			echo "<a href='../../Vistas/Equipos/location.php'><button type='button'>Home</button></a>";
 		}
 		else{
+			$control->corregirIncremento();
 			echo "El manejador de Base de Datos ha arrojado el siguiente error: <br>".$respuesta ;
 			echo "<a href='../../Vistas/Equipos/location.php'><button type='button'>Home</button></a>";
 		}
