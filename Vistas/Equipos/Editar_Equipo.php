@@ -62,7 +62,7 @@ $data = $control->recuperarEquipo($_GET['id']);
 			<tr>
 				<input type="hidden" name="id" value="<?php echo $data['codigo']?>" />
 				<td><button type="submit">Guardar Cambios</button></td>
-				<td><a href="Inventario.php"><button type="button">Back</button></a></td>
+				<td><a href="location.php"><button type="button">Back</button></a></td>
 			</tr>
 		</table>
 	</form>

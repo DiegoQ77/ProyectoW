@@ -2,10 +2,10 @@
 require_once("../../Modelos/Conexion.php");
 class Equipo {
 
-    public function obtenerEquipos() {
+    public function obtenerEquipos($inicio, $final) {
         $conexion = new Conexion();
         $db = $conexion->conectar();
-        $sql = "SELECT * FROM equipos";
+    $sql = "SELECT * FROM equipos LIMIT  {$inicio} , {$final}";
         foreach ($db->query($sql) as $res) {
             $equipo[] = $res;
         }
@@ -13,10 +13,10 @@ class Equipo {
         $db->close();
     }
     
-    public function ordenarEquipos($id, $orden) {
+    public function ordenarEquipos($id, $orden, $inicio, $final) {
         $conexion = new Conexion();
         $db = $conexion->conectar();
-        $sql = "SELECT * FROM equipos ORDER BY {$id} {$orden}";
+        $sql = "SELECT * FROM equipos ORDER BY {$id} {$orden} LIMIT  {$inicio} , {$final}";
         foreach ($db->query($sql) as $res) {
             $equipo[] = $res;
         }
@@ -37,11 +37,11 @@ class Equipo {
         $db->close();
     }
 
-    public function filtrarEquipos($consulta){
+    public function filtrarEquipos($consulta,$inicio,$final,$id, $orden){
         $conexion = new Conexion();
         $db = $conexion->conectar();
         $q = $db->real_escape_string($consulta);
-        $sql = "SELECT * FROM equipos WHERE codigo LIKE '%$q%' OR nombre LIKE '%$q%' OR cantidad LIKE '%$q%' OR especificaciones LIKE '%$q%' OR disponibilidad LIKE '%$q%' OR encargado LIKE '$q' OR contacto LIKE '$q' OR categoria LIKE '$q'";
+    $sql = "SELECT * FROM equipos WHERE codigo LIKE '%$q%' OR nombre LIKE '%$q%' OR cantidad LIKE '%$q%' OR especificaciones LIKE '%$q%' OR disponibilidad LIKE '%$q%' OR encargado LIKE '$q' OR contacto LIKE '$q' OR categoria LIKE '$q' ORDER BY {$id} {$orden} LIMIT {$final}";
         foreach ($db->query($sql) as $res) {
             $equipo[] = $res;
         }

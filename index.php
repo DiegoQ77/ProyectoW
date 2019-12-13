@@ -1,6 +1,9 @@
 <?php 
 	session_start();
-	$_SESSION['orden'] = 'ASC';
+    $_SESSION['orden'] = 'ASC';
+    $_SESSION['cantidad'] = 5;
+    $_SESSION['inicio'] = 0;
+    $_SESSION['pagina'] = 1;
 ?>
 <!DOCTYPE HTML>
 <html lang="es">
@@ -24,7 +27,7 @@
                         <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="../../Vistas/Equipos/Inventario.php">Inventario</a>
+                        <a href="../../Vistas/Equipos/location.php">Inventario</a>
                     </li>
                     <li>
                         <a href="../../Vistas/usuarios/login.php">Acceder</a>

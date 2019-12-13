@@ -25,37 +25,36 @@
 </head>
 <body>
 	<?php
-    if (isset($_POST['consulta'])) {
-    	$datos = $control->filtrarListaEquipos();
+	if(isset($_POST['cantidad'])){
+		$control->cambiarCantidadEquipos();
 	}
-	else if(empty($_SESSION['id'])){
-		$datos = $control->obtenerListaEquipos();
-	 }
+	if(isset($_POST['pagina'])){
+		$control->cambiarPagina();
+	}
+    if (isset($_POST['consulta'])) {
+		$datos = $control->filtrarListaEquipos();
+	}
+	else if(!empty($_SESSION['id'])){
+		$datos = $control->ordenarListaEquipos();
+	}
 	 else{
-		$datos = $control->ordenarListaEquipos($_SESSION['id'], $_SESSION['orden']);
-		if($_SESSION['orden'] == 'ASC'){
-			$_SESSION['orden'] = 'DESC';
-		}
-		else{
-			$_SESSION['orden'] = 'ASC';
-		}
-		unset($_SESSION['id']);
+		$datos = $control->obtenerListaEquipos();
 	 }
 	 if(is_array($datos)){
 		 ?>
 		<table border="1" cellspacing="0" cellpadding="0">
 		<thead>
 			<tr>
-				<th><a href = 'Inventario.php?id=codigo'>Codigo</a></th>
-				<th><a href = 'Inventario.php?id=nombre'>Nombre</a></th>
-				<th><a href = 'Inventario.php?id=cantidad'>Cantidad</a></th>
-				<th><a href = 'Inventario.php?id=especificaciones'>Especificaciones</a></th>
-				<th><a href = 'Inventario.php?id=disponibilidad'>Disponibilidad</a></th>
-				<th><a href = 'Inventario.php?id=encargado'>Encargado</a></th>
-				<th><a href = 'Inventario.php?id=contacto'>Contacto</a></th>
-				<th><a href = 'Inventario.php?id=categoria'>Categoria</a></th>
-				<th><a href = 'Inventario.php?id=created_at'>Creado</a></th>
-				<th><a href = 'Inventario.php?id=updated_at'>Actualizado</a></th>
+				<th><a href = 'location.php?id=codigo'>Codigo</a></th>
+				<th><a href = 'location.php?id=nombre'>Nombre</a></th>
+				<th><a href = 'location.php?id=cantidad'>Cantidad</a></th>
+				<th><a href = 'location.php?id=especificaciones'>Especificaciones</a></th>
+				<th><a href = 'location.php?id=disponibilidad'>Disponibilidad</a></th>
+				<th><a href = 'location.php?id=encargado'>Encargado</a></th>
+				<th><a href = 'location.php?id=contacto'>Contacto</a></th>
+				<th><a href = 'location.php?id=categoria'>Categoria</a></th>
+				<th><a href = 'location.php?id=created_at'>Creado</a></th>
+				<th><a href = 'location.php?id=updated_at'>Actualizado</a></th>
 				<th>Acciones</th>
 			</tr>
 		</thead>
@@ -87,9 +86,12 @@
 		else{
 			echo "NO HAY DATOS JAJA SALU2";
 		}
+		
 ?>
+
 </tbody>
 </table>
+<center><label for = "pagina"><?php echo $_SESSION['pagina']?></label></center>
 </div>
 
 </body>

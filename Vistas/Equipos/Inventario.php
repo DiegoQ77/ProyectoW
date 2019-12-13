@@ -1,8 +1,5 @@
 <?php
 session_start();
-if(isset($_GET['id'])){
-	$_SESSION['id'] = $_GET['id'];
- }
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,15 +27,24 @@ if(isset($_GET['id'])){
 	<div class="formulario">
 		<label for="caja_busqueda">Buscar</label>
 		<input type="text" name="caja_busqueda" id="caja_busqueda"></input>
-
-		
+		<label for="filas">Numero de Filas: </label>
+		<select name="eleccion" id="eleccion">
+		<option selected hidden><?php echo $_SESSION['cantidad']?></option>
+		<option>5</option>
+		<option>10</option>
+		<option>15</option>
+		<option>20</option>
+		<option>25</option>
+		</select>
 	</div>
+	
 
 	<div id="datos"></div>
 	
 	
 </section>
-
+<center><button id='pag' value='anterior'><-</button>
+<button id='pag' value='siguiente'>-></button></center>
 
 
 <script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
