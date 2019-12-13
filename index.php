@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-    $_SESSION['orden'] = 'ASC';
+    $_SESSION['orden'] = 'DESC';
     $_SESSION['cantidad'] = 5;
     $_SESSION['inicio'] = 0;
     $_SESSION['pagina'] = 1;
