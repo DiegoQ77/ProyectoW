@@ -3,6 +3,9 @@
 require_once("../../Controladores/Control_Inventario.php");
 $control = new Control_Inventario();
 $data = $control->recuperarEquipo();
+$personas = $control->obtenerListaPersonas();
+$sedes = $control->obtenerListaSedes();
+$facultades = $control->obtenerListaFacultades();
 ?>
 
 <!DOCTYPE html>
@@ -29,37 +32,83 @@ $data = $control->recuperarEquipo();
 	<legend>Editar</legend>
 
 	<form action="Actualizado.php" method="post">
-		<table cellspacing="0" cellpadding="0">	
+	<table cellspacing="0" cellpadding="0">	
+			<tr>
+				<th>Categoria</th>
+				<td><input type="text" name="categoria" value="<?php echo $data['categoria'];?>"/></td>
+			</tr>	
 			<tr>
 				<th>Nombre</th>
-				<td><input type="text" name="nombre" value="<?php echo $data['nombre'] ?>" /></td>
+				<td><input type="text" name="nombre"  value="<?php echo $data['nombre'];?>"/></td>
+			</tr>
+			<tr>
+				<th>Disponibilidad</th>
+				<td><select name="disponibilidad">
+						<option selected hidden><?php echo $data['disponibilidad'];?></option>
+						<option>Si</option>
+						<option>No</option>
+				</select></td>
 			</tr>
 			<tr>
 				<th>Cantidad</th>
-				<td><input type="text" name="cantidad" value="<?php echo $data['cantidad'] ?>" /></td>
-			</tr>
-            <tr>
-				<th>Especificaciones</th>
-				<td><input type="text" name="especificacion" value="<?php echo $data['especificaciones'] ?>" /></td>
-			</tr>
-            <tr>
-				<th>Disponibilidad</th>
-				<td><input type="text" name="disponibilidad" value="<?php echo $data['disponibilidad'] ?>" /></td>
-			</tr>
-            <tr>
-				<th>Encargado</th>
-				<td><input type="text" name="encargado" value="<?php echo $data['encargado'] ?>" /></td>
-			</tr>
-            <tr>
-				<th>Contacto</th>
-				<td><input type="text" name="contacto" value="<?php echo $data['contacto'] ?>" /></td>
-			</tr>
-            <tr>
-				<th>Categoria</th>
-				<td><input type="text" name="categoria" value="<?php echo $data['categoria'] ?>" /></td>
-			</tr>
-			
+				<td><input type="number" name="cantidad" value="<?php echo $data['cantidad'];?>"/></td>
+			</tr>	
 			<tr>
+			<th>Encargado</th>
+				<td><select name="encargado">
+						<option selected hidden><?php echo $data['encargado'];?></option>
+						<?php 
+						if(is_array($personas)){
+						for ($i = 0; $i < count($personas); $i++) {	
+							?>
+						<option value="<?php echo $personas[$i]["id"]?>"><?php echo $personas[$i]["id"] ." - ".$personas[$i]["encargado"]; ?></option>
+						<?php 
+						}
+					}
+					else{
+						echo "NO HAY DATOS";
+					}
+						?>
+				</select></td>
+			</tr>
+			<tr>
+				<th>Sede</th>
+				<td><select name="sede">
+						<option selected hidden><?php echo $data['sede'];?></option>
+						<?php 
+						if(is_array($sedes)){
+						for ($i = 0; $i < count($sedes); $i++) {	
+							?>
+						<option value="<?php echo $sedes[$i]["id"]?>"><?php echo $sedes[$i]["id"] ." - ".$sedes[$i]["sede"]; ?></option>
+						<?php 
+						}
+					}
+					else{
+						echo "NO HAY DATOS";
+					}
+						?>
+				</select></td>
+			</tr>
+			<tr>
+				<th>Facultad</th>
+				<td><select name="facultad">
+						<option selected hidden><?php echo $data['facultad'];?></option>
+						<?php 
+						if(is_array($facultades)){
+						for ($i = 0; $i < count($facultades); $i++) {	
+							?>
+						<option value="<?php echo $facultades[$i]["id"]?>"><?php echo $facultades[$i]["id"] ." - ".$facultades[$i]["facultad"]; ?></option>
+						<?php 
+						}
+					}
+					else{
+						echo "NO HAY DATOS";
+					}
+						?>
+				</select></td>
+			</tr>
+			<tr>
+			
 				<input type="hidden" name="id" value="<?php echo $data['codigo']?>" />
 				<td><button type="submit">Guardar Cambios</button></td>
 				<td><a href="location.php"><button type="button">Back</button></a></td>
@@ -68,6 +117,5 @@ $data = $control->recuperarEquipo();
 	</form>
 
 </fieldset>
-
 </body>
 </html>

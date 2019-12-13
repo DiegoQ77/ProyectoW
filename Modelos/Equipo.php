@@ -5,18 +5,27 @@ class Equipo {
     public function obtenerEquipos($inicio, $final) {
         $conexion = new Conexion();
         $db = $conexion->conectar();
-    $sql = "SELECT * FROM equipos LIMIT  {$inicio} , {$final}";
+        $sql = "SELECT codigo, categoria, nombre,disponibilidad, cantidad,full_name AS encargado, email, s.sede as sede, unidad_facultad as facultad, e.created_at, e.updated_at FROM equipos e LEFT JOIN sedes s ON e.sede = s.id LEFT JOIN unidades_facultades uf ON e.facultad = uf.id LEFT JOIN personas p  ON e.encargado = p.id, users LIMIT  {$inicio} , {$final}";
         foreach ($db->query($sql) as $res) {
             $equipo[] = $res;
         }
         return $equipo;
         $db->close();
     }
+
+    public function recuperarImagen($id){
+        $conexion = new Conexion();
+        $db = $conexion->conectar();
+        $sql = "SELECT imagen FROM equipos WHERE codigo = $id";
+        $resultado=$db->query($sql);
+        $datos = mysqli_fetch_assoc($resultado);
+        return $datos;
+    }
     
     public function ordenarEquipos($id, $orden, $inicio, $final) {
         $conexion = new Conexion();
         $db = $conexion->conectar();
-        $sql = "SELECT * FROM equipos ORDER BY {$id} {$orden} LIMIT  {$inicio} , {$final}";
+        $sql =  "SELECT codigo, categoria, nombre,disponibilidad, cantidad,full_name AS encargado, email, s.sede as sede, unidad_facultad as facultad, e.created_at, e.updated_at FROM equipos e LEFT JOIN sedes s ON e.sede = s.id LEFT JOIN unidades_facultades uf ON e.facultad = uf.id LEFT JOIN personas p  ON e.encargado = p.id, users ORDER BY {$id} {$orden} LIMIT  {$inicio} ,{$final}";
         foreach ($db->query($sql) as $res) {
             $equipo[] = $res;
         }
@@ -27,7 +36,7 @@ class Equipo {
     public function añadirEquipo($modelodatos){
         $conexion = new Conexion();
         $db = $conexion->conectar();
-        $sql = "INSERT INTO equipos (nombre,cantidad,especificaciones,disponibilidad, encargado, contacto, categoria) VALUES('$modelodatos[nombre]','$modelodatos[cantidad]','$modelodatos[especificacion]','$modelodatos[disponibilidad]','$modelodatos[encargado]','$modelodatos[contacto]','$modelodatos[categoria]')";
+        $sql = "INSERT INTO equipos (categoria,nombre,disponibilidad,cantidad,encargado,sede,facultad) VALUES('$modelodatos[categoria]','$modelodatos[nombre]','$modelodatos[disponibilidad]','$modelodatos[cantidad]','$modelodatos[encargado]','$modelodatos[sede]','$modelodatos[facultad]')";
         if($db->query($sql) === TRUE) {
             return 'success';
         }
@@ -40,7 +49,7 @@ class Equipo {
     public function buscarEquipos($id){
         $conexion = new Conexion();
         $db = $conexion->conectar();
-        $sql = "SELECT * FROM equipos WHERE codigo = {$id}";
+        $sql = "SELECT codigo, categoria, nombre,disponibilidad, cantidad,full_name AS encargado, email, s.sede as sede, unidad_facultad as facultad, e.created_at, e.updated_at FROM equipos e LEFT JOIN sedes s ON e.sede = s.id LEFT JOIN unidades_facultades uf ON e.facultad = uf.id LEFT JOIN personas p  ON e.encargado = p.id, users WHERE codigo = {$id}";
         $result = $db->query($sql);
         $equipo = $result->fetch_assoc();
         return $equipo;
@@ -50,7 +59,7 @@ class Equipo {
     public function editarEquipo($modelodatos){
         $conexion = new Conexion();
         $db = $conexion->conectar();
-        $sql = "UPDATE equipos SET nombre = '$modelodatos[nombre]', cantidad = '$modelodatos[cantidad]', especificaciones = '$modelodatos[especificacion]', disponibilidad = '$modelodatos[disponibilidad]', encargado = '$modelodatos[encargado]', contacto = '$modelodatos[contacto]', categoria = '$modelodatos[categoria]'WHERE codigo = $modelodatos[id]";
+        $sql = "UPDATE equipos SET nombre = '$modelodatos[nombre]', cantidad = '$modelodatos[cantidad]', disponibilidad = '$modelodatos[disponibilidad]', encargado = '$modelodatos[encargado]', categoria = '$modelodatos[categoria]' , sede = '$modelodatos[sede]' , facultad = '$modelodatos[facultad]' WHERE codigo = $modelodatos[id]";
         if($db->query($sql) === TRUE) {
             return 'success';
         }

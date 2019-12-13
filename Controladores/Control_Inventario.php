@@ -1,4 +1,8 @@
 <?php require_once("../../Modelos/Equipo.php");
+require_once("../../Modelos/Personas.php");
+require_once("../../Modelos/Sedes.php");
+require_once("../../Modelos/Facultades.php");
+
 
     Class Control_Inventario{
 
@@ -6,15 +10,60 @@
             $equipo = new Equipo();
             $inicio = $_SESSION['inicio'];
             $final= $_SESSION['cantidad'];
-            return $equipo->obtenerEquipos($inicio, $final);
+            $result =  $equipo->obtenerEquipos($inicio, $final);
+            if(empty($result)){
+                return "No hay Datos";
+            }
+            else{
+                return $result;
+            }
     }
+        public function obtenerListaPersonas(){
+            $persona = new Personas();
+            $result = $persona->obtenerPersonas();
+            if(empty($result)){
+                return "No hay Datos";
+            }
+            else{
+                return $result;
+            }
+        }
+
+        public function obtenerListaSedes(){
+            $sede = new Sedes();
+            $result = $sede->obtenerSedes();
+            if(empty($result)){
+                return "No hay Datos";
+            }
+            else{
+                return $result;
+            }
+        }
+
+        public function obtenerListaFacultades(){
+            $facultad = new Facultades();
+            $result = $facultad->obtenerFacultades();
+            if(empty($result)){
+                return "No hay Datos";
+            }
+            else{
+                return $result;
+            }
+        }
+
         public function ordenarListaEquipos() {
             $equipo = new Equipo();
             $id = $_SESSION['id'];
             $orden = $_SESSION['orden'];
             $inicio = $_SESSION['inicio'];
             $final= $_SESSION['cantidad'];
-            return $equipo->ordenarEquipos($id, $orden, $inicio, $final);
+            $result =  $equipo->ordenarEquipos($id, $orden, $inicio, $final);
+            if(empty($result)){
+                return "No hay Datos";
+            }
+            else{
+                return $result;
+            }
     }
         
         public function cambiarPagina(){
@@ -39,13 +88,14 @@
             $data = $_SESSION['matriz'];
             $result = array_values(array_filter($data, function ($item) use ($consulta) {
             if (stripos($item['codigo'], $consulta) !== false ||
+            stripos($item['categoria'], $consulta) !== false ||
                 stripos($item['nombre'], $consulta) !== false ||
-                stripos($item['cantidad'], $consulta) !== false ||
-                stripos($item['especificaciones'], $consulta) !== false ||
                 stripos($item['disponibilidad'], $consulta) !== false ||
+                stripos($item['cantidad'], $consulta) !== false ||
                 stripos($item['encargado'], $consulta) !== false ||
-                stripos($item['contacto'], $consulta) !== false ||
-                stripos($item['categoria'], $consulta) !== false) {
+                stripos($item['email'], $consulta) !== false ||
+                stripos($item['sede'], $consulta) !== false ||
+                stripos($item['facultad'], $consulta) !== false) {
                 return true;
             }
             return false;
@@ -58,16 +108,23 @@
             }
         }
 
+        public function recuperarImagen(){
+            $equipo = new Equipo();
+            $id = $_GET['id'];
+            $respuesta = $equipo->recuperarImagen($id);
+            return $respuesta;
+        }
+
         public function ctlAgregarEquipo(){
             $equipo = new Equipo();
             $datoscontrol = array(
+                'categoria' => $_POST['categoria'],
                 'nombre'=> $_POST['nombre'],
-                'cantidad' => $_POST['cantidad'],
-                'especificacion' => $_POST['especificacion'],
                 'disponibilidad' => $_POST['disponibilidad'],
+                'cantidad' => $_POST['cantidad'],
                 'encargado' => $_POST['encargado'],
-                'contacto' => $_POST['contacto'],
-                'categoria' => $_POST['categoria']
+                'sede' => $_POST['sede'],
+                'facultad' => $_POST['facultad'],
             );
            $respuesta = $equipo->añadirEquipo($datoscontrol);
            return $respuesta;
@@ -83,13 +140,13 @@
             $equipo = new Equipo();
             $datoscontrol = array(
                 'id' => $_POST['id'],
+                'categoria' => $_POST['categoria'],
                 'nombre'=> $_POST['nombre'],
-                'cantidad' => $_POST['cantidad'],
-                'especificacion' => $_POST['especificacion'],
                 'disponibilidad' => $_POST['disponibilidad'],
+                'cantidad' => $_POST['cantidad'],
                 'encargado' => $_POST['encargado'],
-                'contacto' => $_POST['contacto'],
-                'categoria' => $_POST['categoria']
+                'sede' => $_POST['sede'],
+                'facultad' => $_POST['facultad'],
             );
             $respuesta = $equipo->editarEquipo($datoscontrol);
             return $respuesta;

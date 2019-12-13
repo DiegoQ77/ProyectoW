@@ -48,13 +48,15 @@
 		<thead>
 			<tr>
 				<th><a href = 'location.php?id=codigo'>Codigo</a></th>
-				<th><a href = 'location.php?id=nombre'>Nombre</a></th>
-				<th><a href = 'location.php?id=cantidad'>Cantidad</a></th>
-				<th><a href = 'location.php?id=especificaciones'>Especificaciones</a></th>
-				<th><a href = 'location.php?id=disponibilidad'>Disponibilidad</a></th>
-				<th><a href = 'location.php?id=encargado'>Encargado</a></th>
-				<th><a href = 'location.php?id=contacto'>Contacto</a></th>
 				<th><a href = 'location.php?id=categoria'>Categoria</a></th>
+				<th><a href = 'location.php?id=nombre'>Nombre</a></th>
+				<th><a href = 'location.php?id=disponibilidad'>Disponibilidad</a></th>
+				<th><a href = 'location.php?id=cantidad'>Cantidad</a></th>
+				<th><a href = 'location.php?id=encargado'>Encargado</a></th>
+				<th><a href = 'location.php?id=email'>Contacto</a></th>
+				<th><a href = 'location.php?id=sede'>Sede</a></th>
+				<th><a href = 'location.php?id=facultad'>Facultad</a></th>
+				<th>Imagen</th>
 				<th><a href = 'location.php?id=created_at'>Creado</a></th>
 				<th><a href = 'location.php?id=updated_at'>Actualizado</a></th>
 				<th>Acciones</th>
@@ -66,13 +68,15 @@
 		?>
 		<tr>
 			<td><?php echo $datos[$i]["codigo"]; ?></td>
-			<td><?php echo $datos[$i]["nombre"]; ?></td>
-			<td><?php echo $datos[$i]["cantidad"]; ?></td>
-			<td><?php echo $datos[$i]["especificaciones"]; ?></td>
-			<td><?php echo $datos[$i]["disponibilidad"]; ?></td>
-			<td><?php echo $datos[$i]["encargado"]; ?></td>
-			<td><?php echo $datos[$i]["contacto"]; ?></td>
 			<td><?php echo $datos[$i]["categoria"]; ?></td>
+			<td><?php echo $datos[$i]["nombre"]; ?></td>
+			<td><?php echo $datos[$i]["disponibilidad"]; ?></td>
+			<td><?php echo $datos[$i]["cantidad"]; ?></td>
+			<td><?php echo $datos[$i]["encargado"]; ?></td>
+			<td><?php echo $datos[$i]["email"]; ?></td>
+			<td><?php echo $datos[$i]["sede"]; ?></td>
+			<td><?php echo $datos[$i]["facultad"]; ?></td>
+			<td><img src="Imagenes.php?id=<?php echo $datos[$i]["codigo"];?>" width="100" height="100"/></td>
 			<td><?php echo $datos[$i]["created_at"]; ?></td>
 			<td><?php echo $datos[$i]["updated_at"]; ?></td>
 			<?php echo"
