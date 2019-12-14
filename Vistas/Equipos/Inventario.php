@@ -40,7 +40,7 @@ session_start();
 	
 
 	<div id="datos"></div>
-	
+	<a href='../../index.php'><button type='button'>Home</button></a>
 	
 </section>
 

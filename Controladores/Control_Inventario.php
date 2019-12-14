@@ -132,6 +132,7 @@ require_once("../../Modelos/Facultades.php");
 
         public function ctlEditarEquipo(){
             $equipo = new Equipo();
+            $anterior = $equipo->buscarEquipos($_POST['id']);
             $datoscontrol = array(
                 'id' => $_POST['id'],
                 'categoria' => $_POST['categoria'],
@@ -142,7 +143,7 @@ require_once("../../Modelos/Facultades.php");
                 'sede' => $_POST['sede'],
                 'facultad' => $_POST['facultad'],
             );
-            $respuesta = $equipo->editarEquipo($datoscontrol);
+            $respuesta = $equipo->editarEquipo($datoscontrol, $anterior);
             return $respuesta;
         }
 

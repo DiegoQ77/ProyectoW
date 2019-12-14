@@ -30,7 +30,7 @@
                         <a href="../../Vistas/Equipos/location.php">Inventario</a>
                     </li>
                     <li>
-                        <a href="../../Vistas/usuarios/login.php">Acceder</a>
+                        <a href="../../Vistas/usuarios/ingrese.php">Acceder</a>
                     </li>
                    
                 </ul>

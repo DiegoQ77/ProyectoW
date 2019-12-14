@@ -72,10 +72,27 @@ class Equipo {
         $db->close();
     }
 
-    public function editarEquipo($modelodatos){
+    public function editarEquipo($modelodatos, $anterior){
         $conexion = new Conexion();
-        $db = $conexion->conectar();
-        $sql = "UPDATE equipos SET nombre = '$modelodatos[nombre]', cantidad = '$modelodatos[cantidad]', disponibilidad = '$modelodatos[disponibilidad]', encargado = '$modelodatos[encargado]', categoria = '$modelodatos[categoria]' , sede = '$modelodatos[sede]' , facultad = '$modelodatos[facultad]' WHERE codigo = $modelodatos[id]";
+        $db = $conexion->conectar(); 
+        $modelodatos['imagen'] = mysqli_real_escape_string($db,$modelodatos['imagen']);
+        $sql = "UPDATE equipos SET nombre = '$modelodatos[nombre]', cantidad = '$modelodatos[cantidad]', disponibilidad = '$modelodatos[disponibilidad]', categoria = '$modelodatos[categoria]'";
+
+
+        if($modelodatos['encargado'] != $anterior['encargado']){
+        $sql = "{$sql} , encargado = '$modelodatos[encargado]'";
+        }
+
+        if($modelodatos['sede'] != $anterior['sede']){
+            $sql = "{$sql} , sede = '$modelodatos[sede]'";
+            }
+
+        if($modelodatos['facultad'] != $anterior['facultad']){
+                $sql = "{$sql} , facultad = '$modelodatos[facultad]'";
+            }
+
+        $sql = "{$sql} WHERE codigo = '$modelodatos[id]'";
+
         if($db->query($sql) === TRUE) {
             return 'success';
         }
