@@ -35,15 +35,15 @@ $facultades = $control->obtenerListaFacultades();
 	<table cellspacing="0" cellpadding="0">	
 			<tr>
 				<th>Categoria</th>
-				<td><input type="text" name="categoria" value="<?php echo $data['categoria'];?>"/></td>
+				<td><input type="text" name="categoria" value="<?php echo $data['categoria'];?> " required/></td>
 			</tr>	
 			<tr>
 				<th>Nombre</th>
-				<td><input type="text" name="nombre"  value="<?php echo $data['nombre'];?>"/></td>
+				<td><input type="text" name="nombre"  value="<?php echo $data['nombre'];?>" required/></td>
 			</tr>
 			<tr>
 				<th>Disponibilidad</th>
-				<td><select name="disponibilidad">
+				<td><select name="disponibilidad" required>
 						<option selected hidden><?php echo $data['disponibilidad'];?></option>
 						<option>Si</option>
 						<option>No</option>
@@ -51,11 +51,11 @@ $facultades = $control->obtenerListaFacultades();
 			</tr>
 			<tr>
 				<th>Cantidad</th>
-				<td><input type="number" name="cantidad" value="<?php echo $data['cantidad'];?>"/></td>
+				<td><input type="number" name="cantidad" value="<?php echo $data['cantidad'];?>" required/></td>
 			</tr>	
 			<tr>
 			<th>Encargado</th>
-				<td><select name="encargado">
+				<td><select name="encargado" required>
 						<option selected hidden><?php echo $data['encargado'];?></option>
 						<?php 
 						if(is_array($personas)){
@@ -73,7 +73,7 @@ $facultades = $control->obtenerListaFacultades();
 			</tr>
 			<tr>
 				<th>Sede</th>
-				<td><select name="sede">
+				<td><select name="sede" required>
 						<option selected hidden><?php echo $data['sede'];?></option>
 						<?php 
 						if(is_array($sedes)){
@@ -91,7 +91,7 @@ $facultades = $control->obtenerListaFacultades();
 			</tr>
 			<tr>
 				<th>Facultad</th>
-				<td><select name="facultad">
+				<td><select name="facultad" required>
 						<option selected hidden><?php echo $data['facultad'];?></option>
 						<?php 
 						if(is_array($facultades)){
@@ -106,6 +106,10 @@ $facultades = $control->obtenerListaFacultades();
 					}
 						?>
 				</select></td>
+			</tr>
+			<tr>
+				<th>Cambiar Imagen: </th>
+    			<td><input type="file" name="imagen" id="imagen"/></td>
 			</tr>
 			<tr>
 			

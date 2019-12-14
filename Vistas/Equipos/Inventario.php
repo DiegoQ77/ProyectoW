@@ -43,8 +43,6 @@ session_start();
 	
 	
 </section>
-<center><button id='pag' value='anterior'><-</button>
-<button id='pag' value='siguiente'>-></button></center>
 
 
 <script type="text/javascript" src="../../assets/js/jquery.min.js"></script>

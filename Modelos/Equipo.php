@@ -21,7 +21,7 @@ class Equipo {
     public function recuperarImagen($id){
         $conexion = new Conexion();
         $db = $conexion->conectar();
-        $sql = "SELECT imagen FROM equipos WHERE codigo = $id";
+        $sql = "SELECT imagen, tipo_imagen FROM equipos WHERE codigo = $id";
         $resultado=$db->query($sql);
         $datos = mysqli_fetch_assoc($resultado);
         if(empty($datos)){
@@ -51,7 +51,8 @@ class Equipo {
     public function añadirEquipo($modelodatos){
         $conexion = new Conexion();
         $db = $conexion->conectar();
-        $sql = "INSERT INTO equipos (categoria,nombre,disponibilidad,cantidad,encargado,sede,facultad) VALUES('$modelodatos[categoria]','$modelodatos[nombre]','$modelodatos[disponibilidad]','$modelodatos[cantidad]','$modelodatos[encargado]','$modelodatos[sede]','$modelodatos[facultad]')";
+        $modelodatos['imagen'] = mysqli_real_escape_string($db,$modelodatos['imagen']);
+        $sql = "INSERT INTO equipos (categoria,nombre,disponibilidad,cantidad,encargado,sede,facultad,imagen,tipo_imagen) VALUES('$modelodatos[categoria]','$modelodatos[nombre]','$modelodatos[disponibilidad]','$modelodatos[cantidad]','$modelodatos[encargado]','$modelodatos[sede]','$modelodatos[facultad]', '$modelodatos[imagen]','$modelodatos[tipo]')";
         if($db->query($sql) === TRUE) {
             return 'success';
         }
@@ -64,7 +65,7 @@ class Equipo {
     public function buscarEquipos($id){
         $conexion = new Conexion();
         $db = $conexion->conectar();
-        $sql = "SELECT codigo, categoria, nombre,disponibilidad, cantidad,full_name AS encargado, email, s.sede as sede, unidad_facultad as facultad, e.created_at, e.updated_at FROM equipos e LEFT JOIN sedes s ON e.sede = s.id LEFT JOIN unidades_facultades uf ON e.facultad = uf.id LEFT JOIN personas p  ON e.encargado = p.id, users WHERE codigo = {$id}";
+        $sql = "SELECT codigo, categoria, nombre,disponibilidad, cantidad,full_name AS encargado, email, s.sede as sede, unidad_facultad as facultad FROM equipos e LEFT JOIN sedes s ON e.sede = s.id LEFT JOIN unidades_facultades uf ON e.facultad = uf.id LEFT JOIN personas p  ON e.encargado = p.id, users WHERE codigo = {$id}";
         $result = $db->query($sql);
         $equipo = $result->fetch_assoc();
         return $equipo;

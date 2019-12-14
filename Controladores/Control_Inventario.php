@@ -91,18 +91,37 @@ require_once("../../Modelos/Facultades.php");
         }
 
         public function ctlAgregarEquipo(){
-            $equipo = new Equipo();
-            $datoscontrol = array(
-                'categoria' => $_POST['categoria'],
-                'nombre'=> $_POST['nombre'],
-                'disponibilidad' => $_POST['disponibilidad'],
-                'cantidad' => $_POST['cantidad'],
-                'encargado' => $_POST['encargado'],
-                'sede' => $_POST['sede'],
-                'facultad' => $_POST['facultad'],
-            );
-           $respuesta = $equipo->añadirEquipo($datoscontrol);
-           return $respuesta;
+            if ( !isset($_FILES['imagen']) || $_FILES['imagen']['error'] > 0){
+                $respuesta =  "Ha ocurrido un error subiendo la imagen";
+            }
+            else {
+                $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
+                $limite_kb = 16384;
+                if (in_array($_FILES['imagen']['type'], $permitidos) && $_FILES['imagen']['size'] <= $limite_kb * 1024){
+                    $imagen_temporal = $_FILES['imagen']['tmp_name'];
+                    $tipo = $_FILES['imagen']['type'];
+                    $fp = fopen($imagen_temporal, 'r+b');
+                    $data = fread($fp, filesize($imagen_temporal));
+                    fclose($fp);
+                    $equipo = new Equipo();
+                    $datoscontrol = array(
+                        'categoria' => $_POST['categoria'],
+                        'nombre'=> $_POST['nombre'],
+                        'disponibilidad' => $_POST['disponibilidad'],
+                        'cantidad' => $_POST['cantidad'],
+                        'encargado' => $_POST['encargado'],
+                        'sede' => $_POST['sede'],
+                        'facultad' => $_POST['facultad'],
+                        'imagen'=> $data,
+                        'tipo' => $tipo
+                    );
+                    $respuesta = $equipo->añadirEquipo($datoscontrol);
+                }
+                else{
+                    $resupuesta = "Archivo no permitido, es un tipo de archivo prohibido o excede el tamano de $limite_kb Kilobytes.";
+                }
+            }
+            return $respuesta;
         }
 
         public function recuperarEquipo(){

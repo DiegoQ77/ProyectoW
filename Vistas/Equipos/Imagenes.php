@@ -3,10 +3,9 @@
     $control = new Control_Inventario();
     $datos = $control->recuperarImagen();
     $imagen = $datos['imagen'];
+    $tipo = $datos['tipo_imagen'];
 
-    header("Content-type: image/jpg");
+    header("Content-type: ",$tipo);
 
 echo $imagen;
-
-
 ?>

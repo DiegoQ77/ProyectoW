@@ -97,7 +97,9 @@
 
 </tbody>
 </table>
-<center><label for = "pagina"><?php echo $_SESSION['pagina']?></label></center>
+<center><button id='pag' value='anterior'><-</button>
+<label for = "pagina"><?php echo $_SESSION['pagina']?></label>
+<button id='pag' value='siguiente'>-></button></center>
 </div>
 
 </body>

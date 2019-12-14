@@ -28,19 +28,19 @@
 <fieldset>
 	<legend>Agregar</legend>
 
-	<form action="Creado.php" method="post">
+	<form action="Creado.php" method="post" enctype="multipart/form-data">
 		<table cellspacing="0" cellpadding="0">	
 			<tr>
 				<th>Categoria</th>
-				<td><input type="text" name="categoria" /></td>
+				<td><input type="text" name="categoria" required/></td>
 			</tr>	
 			<tr>
 				<th>Nombre</th>
-				<td><input type="text" name="nombre"  /></td>
+				<td><input type="text" name="nombre"  required/></td>
 			</tr>
 			<tr>
 				<th>Disponibilidad</th>
-				<td><select name="disponibilidad">
+				<td><select name="disponibilidad" required>
 						<option selected hidden></option>
 						<option>Si</option>
 						<option>No</option>
@@ -48,11 +48,11 @@
 			</tr>
 			<tr>
 				<th>Cantidad</th>
-				<td><input type="number" name="cantidad" /></td>
+				<td><input type="number" name="cantidad" required/></td>
 			</tr>	
 			<tr>
 			<th>Encargado</th>
-				<td><select name="encargado">
+				<td><select name="encargado" required>
 						<option selected hidden></option>
 						<?php 
 						if(is_array($personas)){
@@ -70,7 +70,7 @@
 			</tr>
 			<tr>
 				<th>Sede</th>
-				<td><select name="sede">
+				<td><select name="sede" required>
 						<option selected hidden></option>
 						<?php 
 						if(is_array($sedes)){
@@ -88,7 +88,7 @@
 			</tr>
 			<tr>
 				<th>Facultad</th>
-				<td><select name="facultad">
+				<td><select name="facultad" required>
 						<option selected hidden></option>
 						<?php 
 						if(is_array($facultades)){
@@ -103,6 +103,10 @@
 					}
 						?>
 				</select></td>
+			</tr>
+			<tr>
+				<th>Imagen: </th>
+    			<td><input type="file" name="imagen" id="imagen" required/></td>
 			</tr>
 			<tr>
 				<td><button type="submit">Guardar</button></td>
