@@ -5,7 +5,7 @@ class Equipo {
     public function obtenerEquipos($inicio, $final) {
         $conexion = new Conexion();
         $db = $conexion->conectar();
-        $sql = "SELECT codigo, categoria, nombre,disponibilidad, cantidad,full_name AS encargado, email, s.sede as sede, unidad_facultad as facultad, e.created_at, e.updated_at FROM equipos e LEFT JOIN sedes s ON e.sede = s.id LEFT JOIN unidades_facultades uf ON e.facultad = uf.id LEFT JOIN personas p  ON e.encargado = p.id, users LIMIT  {$inicio} , {$final}";
+        $sql = "SELECT codigo, categoria, nombre,disponibilidad, cantidad,full_name AS encargado, email, s.sede as sede, unidad_facultad as facultad, e.created_at, e.updated_at FROM equipos e LEFT JOIN sedes s ON e.sede = s.id LEFT JOIN unidades_facultades uf ON e.facultad = uf.id LEFT JOIN personas p  ON e.encargado = p.id INNER JOIN user_persona up on up.id_user = p.id INNER JOIN users u on up.id_user = u.id LIMIT  {$inicio} , {$final}";
         foreach ($db->query($sql) as $res) {
             $equipo[] = $res;
         }
@@ -35,7 +35,7 @@ class Equipo {
     public function ordenarEquipos($id, $orden, $inicio, $final) {
         $conexion = new Conexion();
         $db = $conexion->conectar();
-        $sql =  "SELECT codigo, categoria, nombre,disponibilidad, cantidad,full_name AS encargado, email, s.sede as sede, unidad_facultad as facultad, e.created_at, e.updated_at FROM equipos e LEFT JOIN sedes s ON e.sede = s.id LEFT JOIN unidades_facultades uf ON e.facultad = uf.id LEFT JOIN personas p  ON e.encargado = p.id, users ORDER BY {$id} {$orden} LIMIT  {$inicio} ,{$final}";
+        $sql =  "SELECT codigo, categoria, nombre,disponibilidad, cantidad,full_name AS encargado, email, s.sede as sede, unidad_facultad as facultad, e.created_at, e.updated_at FROM equipos e LEFT JOIN sedes s ON e.sede = s.id LEFT JOIN unidades_facultades uf ON e.facultad = uf.id LEFT JOIN personas p  ON e.encargado = p.id INNER JOIN user_persona up on up.id_user = p.id INNER JOIN users u on up.id_user = u.id ORDER BY {$id} {$orden} LIMIT  {$inicio} ,{$final}";
         foreach ($db->query($sql) as $res) {
             $equipo[] = $res;
         }
@@ -75,7 +75,6 @@ class Equipo {
     public function editarEquipo($modelodatos, $anterior){
         $conexion = new Conexion();
         $db = $conexion->conectar(); 
-        $modelodatos['imagen'] = mysqli_real_escape_string($db,$modelodatos['imagen']);
         $sql = "UPDATE equipos SET nombre = '$modelodatos[nombre]', cantidad = '$modelodatos[cantidad]', disponibilidad = '$modelodatos[disponibilidad]', categoria = '$modelodatos[categoria]'";
 
 
@@ -90,6 +89,12 @@ class Equipo {
         if($modelodatos['facultad'] != $anterior['facultad']){
                 $sql = "{$sql} , facultad = '$modelodatos[facultad]'";
             }
+        
+        if(isset($modelodatos['imagen']) && isset($modelodatos['tipo']) ){
+            $modelodatos['imagen'] = mysqli_real_escape_string($db,$modelodatos['imagen']);
+            $sql = "{$sql} , imagen = '$modelodatos[imagen]' , tipo_imagen = '$modelodatos[tipo]'";
+        }
+
 
         $sql = "{$sql} WHERE codigo = '$modelodatos[id]'";
 

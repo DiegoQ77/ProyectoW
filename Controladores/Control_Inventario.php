@@ -46,7 +46,7 @@ require_once("../../Modelos/Facultades.php");
                 $_SESSION['inicio']=$_SESSION['inicio'] - $_SESSION['cantidad'];
                 $_SESSION['pagina'] = $_SESSION['pagina'] -1;
             }
-            else if($_POST['pagina']=='siguiente' && $_SESSION['cantidad'] ==$_SESSION['datos'] ){
+            else if($_POST['pagina']=='siguiente' && $_SESSION['cantidad'] == $_SESSION['datos'] ){
                    $_SESSION['inicio']=$_SESSION['inicio'] + $_SESSION['cantidad'];
                    $_SESSION['pagina'] = $_SESSION['pagina'] + 1;
             }
@@ -60,6 +60,7 @@ require_once("../../Modelos/Facultades.php");
         public function filtrarListaEquipos(){
             $equipo = new Equipo();
             $consulta = $_POST['consulta'];
+            if(isset($_SESSION['matriz'])){
             $data = $_SESSION['matriz'];
             $result = array_values(array_filter($data, function ($item) use ($consulta) {
             if (stripos($item['codigo'], $consulta) !== false ||
@@ -74,7 +75,7 @@ require_once("../../Modelos/Facultades.php");
                 return true;
             }
             return false;
-            }));
+            }));}
             if(empty($result)){
                 return "No hay Datos";
             }
@@ -143,9 +144,29 @@ require_once("../../Modelos/Facultades.php");
                 'sede' => $_POST['sede'],
                 'facultad' => $_POST['facultad'],
             );
-            $respuesta = $equipo->editarEquipo($datoscontrol, $anterior);
+             if ($_FILES['imagen']['error'] > 0){
+                $respuesta = $equipo->editarEquipo($datoscontrol, $anterior);
+            }
+             else{
+                $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
+                $limite_kb = 16384;
+                if (in_array($_FILES['imagen']['type'], $permitidos) && $_FILES['imagen']['size'] <= $limite_kb * 1024){
+                    $imagen_temporal = $_FILES['imagen']['tmp_name'];
+                    $tipo = $_FILES['imagen']['type'];
+                    $fp = fopen($imagen_temporal, 'r+b');
+                    $data = fread($fp, filesize($imagen_temporal));
+                    fclose($fp);
+                     $datoscontrol['imagen'] = $data;
+                     $datoscontrol['tipo'] =$tipo;
+                    $respuesta = $equipo->editarEquipo($datoscontrol, $anterior);
+                }
+                else{
+                    $resupuesta = "Archivo no permitido, es un tipo de archivo prohibido o excede el tamano de $limite_kb Kilobytes.";
+                }
+            }
             return $respuesta;
         }
+
 
         public function ctlEliminarEquipo(){
             $equipo = new Equipo();
@@ -158,5 +179,6 @@ require_once("../../Modelos/Facultades.php");
             $equipo = new Equipo();
             $equipo->corregirIncremento();
         }
+
     }
 ?>

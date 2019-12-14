@@ -31,7 +31,7 @@ $facultades = $control->obtenerListaFacultades();
 <fieldset>
 	<legend>Editar</legend>
 
-	<form action="Actualizado.php" method="post">
+	<form action="Actualizado.php" method="post" enctype="multipart/form-data">
 	<table cellspacing="0" cellpadding="0">	
 			<tr>
 				<th>Categoria</th>
