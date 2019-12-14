@@ -73,15 +73,15 @@ $facultades = $control->obtenerListaFacultades();
 			<tr>
 				<th>Facultad: </th>
 				<td><?php echo $data['facultad'];?></td>
-			</tr>
-			<tr>
-			
-                <input type="hidden" name="id" value="<?php echo $data['codigo']?>" />
-                <td><a href="Editar_Equipo.php?id=<?php echo $data["codigo"]?>"><button type = "button">Editar Equipo</button></a></td>
-                <td><a href="Eliminar_Equipo.php?id=<?php echo $data["codigo"]?>"><button type = "button">Eliminar Equipo</button></a></td>
-				<td><a href="location.php"><button type="button">Regresar</button></a></td>
-			</tr>
-		</table>
+            </tr>
+            <input type="hidden" name="id" value="<?php echo $data['codigo']?>" />
+        </table>
+        <center>
+               <a href="Editar_Equipo.php?id=<?php echo $data["codigo"]?>"><button type = "button">Editar Equipo</button></a>
+                <a href="Eliminar_Equipo.php?id=<?php echo $data["codigo"]?>"><button type = "button">Eliminar Equipo</button></a>
+                <a href="Solicitar_Equipo.php?id=<?php echo $data["codigo"]?>"><button type = "button">Solicitar Equipo</button></a>
+				<a href="location.php"><button type="button">Regresar</button></a>
+             </center>
 </fieldset>
 </body>
 </html>

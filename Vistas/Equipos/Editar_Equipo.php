@@ -45,7 +45,7 @@ $facultades = $control->obtenerListaFacultades();
 <body>
 
 <fieldset>
-	<legend>Editar</legend>
+	<legend><h1>Editar</h1></legend>
 
 	<form action="Actualizado.php" method="post" enctype="multipart/form-data">
 	<table cellspacing="0" cellpadding="0">	
@@ -75,7 +75,7 @@ $facultades = $control->obtenerListaFacultades();
 			</tr>
 			<tr>
 				<th>Cantidad: </th>
-				<td><input type="number" name="cantidad" value="<?php echo $data['cantidad'];?>" required/></td>
+				<td><input type="number" name="cantidad" min="0" value="<?php echo $data['cantidad'];?>" required/></td>
 			</tr>	
 			<tr>
 			<th>Encargado: </th>
@@ -131,13 +131,12 @@ $facultades = $control->obtenerListaFacultades();
 						?>
 				</select></td>
 			</tr>
-			<tr>
-			
 				<input type="hidden" name="id" value="<?php echo $data['codigo']?>" />
-				<td><button type="submit">Guardar Cambios</button></td>
-				<td><a href="Ver_Equipo.php?id=<?php echo $data["codigo"]?>"><button type = "button">Regresar</button></a></td>
-			</tr>
 		</table>
+		<center>
+		<button type="submit">Guardar Cambios</button>
+		<td><a href="Ver_Equipo.php?id=<?php echo $data["codigo"]?>"><button type = "button">Regresar</button></a>
+				</center>
 	</form>
 
 </fieldset>

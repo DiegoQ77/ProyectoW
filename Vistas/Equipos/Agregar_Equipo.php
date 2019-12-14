@@ -36,7 +36,7 @@
 <body>
 
 <fieldset>
-	<legend>Agregar</legend>
+	<legend><h1>Agregar</h1></legend>
 
 	<form action="Creado.php" method="post" enctype="multipart/form-data">
 		<table cellspacing="0" cellpadding="0">	
@@ -63,7 +63,7 @@
 			</tr>
 			<tr>
 				<th>Cantidad: </th>
-				<td><input type="number" name="cantidad" required/></td>
+				<td><input type="number" name="cantidad"  min="0" required/></td>
 			</tr>	
 			<tr>
 			<th>Encargado: </th>
