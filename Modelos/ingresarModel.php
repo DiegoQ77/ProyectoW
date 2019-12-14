@@ -1,7 +1,7 @@
 <?php
 
 
-require_once("conexion.php");
+require_once("Conexion.php");
 
 class Usuario{  
     public function login($username, $password){ 
@@ -17,11 +17,7 @@ class Usuario{
             return false;
         
     }
-    
-    
-    
-    
- 
+
     
 }
 
