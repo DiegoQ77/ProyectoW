@@ -52,7 +52,7 @@ class Equipo {
         $conexion = new Conexion();
         $db = $conexion->conectar();
         $modelodatos['imagen'] = mysqli_real_escape_string($db,$modelodatos['imagen']);
-        $sql = "INSERT INTO equipos (categoria,nombre,disponibilidad,cantidad,encargado,sede,facultad,imagen,tipo_imagen) VALUES('$modelodatos[categoria]','$modelodatos[nombre]','$modelodatos[disponibilidad]','$modelodatos[cantidad]','$modelodatos[encargado]','$modelodatos[sede]','$modelodatos[facultad]', '$modelodatos[imagen]','$modelodatos[tipo]')";
+        $sql = "INSERT INTO equipos (categoria,nombre,disponibilidad,cantidad,encargado,sede,facultad,imagen,tipo_imagen, created_at, updated_at) VALUES('$modelodatos[categoria]','$modelodatos[nombre]','$modelodatos[disponibilidad]','$modelodatos[cantidad]','$modelodatos[encargado]','$modelodatos[sede]','$modelodatos[facultad]', '$modelodatos[imagen]','$modelodatos[tipo]', current_timestamp(), current_timestamp())";
         if($db->query($sql) === TRUE) {
             return 'success';
         }
@@ -75,7 +75,7 @@ class Equipo {
     public function editarEquipo($modelodatos, $anterior){
         $conexion = new Conexion();
         $db = $conexion->conectar(); 
-        $sql = "UPDATE equipos SET nombre = '$modelodatos[nombre]', cantidad = '$modelodatos[cantidad]', disponibilidad = '$modelodatos[disponibilidad]', categoria = '$modelodatos[categoria]'";
+        $sql = "UPDATE equipos SET nombre = '$modelodatos[nombre]', cantidad = '$modelodatos[cantidad]', disponibilidad = '$modelodatos[disponibilidad]', categoria = '$modelodatos[categoria]', updated_at = current_timestamp()";
 
 
         if($modelodatos['encargado'] != $anterior['encargado']){
