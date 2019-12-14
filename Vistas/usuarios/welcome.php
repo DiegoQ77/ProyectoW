@@ -1,6 +1,8 @@
 <?php
 
-require_once '../controlres/controlLogin.php';
+
+
+require_once '../../Controladores/controlLogin.php';
 
 if($_POST['submit']){
 $username = $_POST['username'];

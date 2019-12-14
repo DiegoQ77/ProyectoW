@@ -1,7 +1,7 @@
 <?php
 
-require_once '../models/conexion.php';
-require_once '../models/ingresarModel.php';
+require_once '../Modelos/Conexion.php';
+require_once '../Modelos/ingresarModel.php';
 
 Class Iniciar {  
     public function entrar($username, $password){
