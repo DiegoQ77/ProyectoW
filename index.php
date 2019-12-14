@@ -45,19 +45,13 @@
                     
                     
                     
-                    
                     <?php
-                    
-                    
-                    require_once 'Vistas/component/slider.html';
-                    
+                 
+                    require_once 'Vistas/component/slider.html';       
                     
                     ?>
                     
-                    
-                    
-                    
-                    
+
                 </div>
              
              
