@@ -46,7 +46,7 @@ session_start();
 
 
 <script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
-<script type="text/javascript" src="../../assets/js/main.js"></script>
+<script type="text/javascript" src="../../assets/js/inventario.js"></script>
 </body>
 
 </html>

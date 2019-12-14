@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel = "stylesheet" href="../../assets/css/ingresecss.css">
+</head>
+<body>
 <h1>Bienvenido a l sistema de Login mvc solo login</h1>
 
 <a>
@@ -23,3 +30,8 @@
     
     
 </a>
+<script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/js/ingresejs.js"></script>
+    </body>
+</body>
+</html> 
