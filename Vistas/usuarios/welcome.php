@@ -1,3 +1,7 @@
+
+
+
+
 <?php
 
 require_once '../../Controladores/controlLogin.php';
@@ -9,6 +13,10 @@ var_dump($password);
 $user = new Iniciar();
 $resp = $user->entrar($username,$password);
 var_dump($resp);
+
+echo "Bienvenido a la app";
+echo "<br>";
+
 
 }else{
         echo 'No se recibio nada';
