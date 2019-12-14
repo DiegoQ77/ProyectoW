@@ -1,8 +1,15 @@
+<?php 
+	session_start();
+    $_SESSION['orden'] = 'DESC';
+    $_SESSION['cantidad'] = 5;
+    $_SESSION['inicio'] = 0;
+    $_SESSION['pagina'] = 1;
+?>
 <!DOCTYPE HTML>
 <html lang="es">
     <head>
         <meta charset="utf-8"/>
-        <title>Tienda de CAMISETAS</title>
+        <title>Inventario</title>
         <link rel = "stylesheet" href="assets/css/indexcss.css">
     </head>
     <body>
@@ -17,13 +24,13 @@
                 <nav id="menu">
                 <ul>
                     <li>
-                        <a href="#">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="#">Inventario</a>
+                        <a href="../../Vistas/Equipos/location.php">Inventario</a>
                     </li>
                     <li>
-                        <a href="http://localhost/Master-php/PROYECTO/Vistas/usuarios/login.php">Acceder</a>
+                        <a href="../../Vistas/usuarios/ingrese.php">Acceder</a>
                     </li>
                    
                 </ul>

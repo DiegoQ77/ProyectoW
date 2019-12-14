@@ -1,7 +1,6 @@
 
 
-
-<h1>Bienvenido a l sistema de Login</h1>
+<h1>Bienvenido a l sistema de Login mvc solo login</h1>
 
 <a>
     
@@ -10,7 +9,7 @@
 
 
     
-    <form action="inicio.php" method="post">
+    <form action="welcome.php" method="post">
         <label for = "user">Usuario</label>
         <input type="text" name="username">
         <br>
