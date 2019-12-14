@@ -66,3 +66,10 @@ $(document).on('click','#pag', function(){
 	cambiar_pagina(valor);
 	$("#caja_busqueda").val('');
 });
+
+$(document).on('click','#tabla tr', function(){
+    var href = $(this).find("a").attr("href");
+    if(href) {
+        window.location = href;
+    }
+});

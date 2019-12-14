@@ -17,7 +17,7 @@ $data = $control->recuperarEquipo($_GET['id']);
 
 	<input type="hidden" name="id" value="<?php echo $data['codigo'] ?>" />
 	<button type="submit">Eliminar</button>
-	<a href="Inventario.php"><button type="button">Back</button></a>
+	<a href="Ver_Equipo.php?id=<?php echo $data["codigo"]?>"><button type = "button">Regresar</button></a>
 </form>
 
 </body>

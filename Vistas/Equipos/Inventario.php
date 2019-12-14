@@ -4,27 +4,15 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-<style type="text/css">
-		.manageMember {
-			width: 50%;
-			margin: auto;
-		}
-
-		table {
-			width: 100%;
-			margin-top: 20px;
-		}
-
-	</style>
+<link rel = "stylesheet" href="../../assets/css/inventario.css">
 </head>
 <body>
 
 <section class="principal">
-<center><h1>SISTEMA DE INVENTARIO</h1></center>
+<center><h1>SISTEMA DE INVENTARIO</h1></center>	<br><br>
 <div class="manageMember">
 	<a href="Agregar_Equipo.php"><button type="button">Registrar Nuevo Equipo</button></a>
 	<br><br>
-	<div class="formulario">
 		<label for="caja_busqueda">Buscar</label>
 		<input type="text" name="caja_busqueda" id="caja_busqueda"></input>
 		<label for="filas">Numero de Filas: </label>
@@ -36,12 +24,10 @@ session_start();
 		<option>20</option>
 		<option>25</option>
 		</select>
-	</div>
 	
-
+	<br><br><br>
 	<div id="datos"></div>
-	<a href='../../index.php'><button type='button'>Home</button></a>
-	
+	</div>
 </section>
 
 

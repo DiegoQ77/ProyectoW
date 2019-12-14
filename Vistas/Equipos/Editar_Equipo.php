@@ -22,6 +22,22 @@ $facultades = $control->obtenerListaFacultades();
 
 		table tr th {
 			padding-top: 20px;
+			padding-bottom: 20px;
+        }
+        
+        table td {
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+		
+		textarea{
+			width:300px;
+			height:100px;
+		}
+		.imagen{
+			float: right;
+			font-weight:bold;
+
 		}
 	</style>
 
@@ -33,16 +49,24 @@ $facultades = $control->obtenerListaFacultades();
 
 	<form action="Actualizado.php" method="post" enctype="multipart/form-data">
 	<table cellspacing="0" cellpadding="0">	
+		<div class = "imagen">
+		<img src="Imagenes.php?id=<?php echo $data["codigo"];?>" width="400" height="400"/><br><br>
+		<laber for = "cambiar">Cambiar Imagen: <label><br><br>
+    	<input type="file" name="imagen" id="imagen"/></div>
 			<tr>
-				<th>Categoria</th>
-				<td><input type="text" name="categoria" value="<?php echo $data['categoria'];?> " required/></td>
+				<th>Categoria: </th>
+				<td><input type="text" display = none name="categoria" value="<?php echo $data['categoria'];?>" required/></td>
 			</tr>	
 			<tr>
-				<th>Nombre</th>
+				<th>Nombre: </th>
 				<td><input type="text" name="nombre"  value="<?php echo $data['nombre'];?>" required/></td>
 			</tr>
 			<tr>
-				<th>Disponibilidad</th>
+			<tr>
+				<th>Descripcion: </th>
+				<td><textarea name="descripcion" required> <?php echo $data['descripcion'];?> </textarea></td>
+			</tr>
+				<th>Disponibilidad: </th>
 				<td><select name="disponibilidad" required>
 						<option selected hidden><?php echo $data['disponibilidad'];?></option>
 						<option>Si</option>
@@ -50,11 +74,11 @@ $facultades = $control->obtenerListaFacultades();
 				</select></td>
 			</tr>
 			<tr>
-				<th>Cantidad</th>
+				<th>Cantidad: </th>
 				<td><input type="number" name="cantidad" value="<?php echo $data['cantidad'];?>" required/></td>
 			</tr>	
 			<tr>
-			<th>Encargado</th>
+			<th>Encargado: </th>
 				<td><select name="encargado" required>
 						<option selected hidden><?php echo $data['encargado'];?></option>
 						<?php 
@@ -72,7 +96,7 @@ $facultades = $control->obtenerListaFacultades();
 				</select></td>
 			</tr>
 			<tr>
-				<th>Sede</th>
+				<th>Sede: </th>
 				<td><select name="sede" required>
 						<option selected hidden><?php echo $data['sede'];?></option>
 						<?php 
@@ -90,7 +114,7 @@ $facultades = $control->obtenerListaFacultades();
 				</select></td>
 			</tr>
 			<tr>
-				<th>Facultad</th>
+				<th>Facultad: </th>
 				<td><select name="facultad" required>
 						<option selected hidden><?php echo $data['facultad'];?></option>
 						<?php 
@@ -108,14 +132,10 @@ $facultades = $control->obtenerListaFacultades();
 				</select></td>
 			</tr>
 			<tr>
-				<th>Cambiar Imagen: </th>
-    			<td><input type="file" name="imagen" id="imagen"/></td>
-			</tr>
-			<tr>
 			
 				<input type="hidden" name="id" value="<?php echo $data['codigo']?>" />
 				<td><button type="submit">Guardar Cambios</button></td>
-				<td><a href="location.php"><button type="button">Back</button></a></td>
+				<td><a href="Ver_Equipo.php?id=<?php echo $data["codigo"]?>"><button type = "button">Regresar</button></a></td>
 			</tr>
 		</table>
 	</form>
