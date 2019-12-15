@@ -6,22 +6,7 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Inventario</title>
-
-	<style type="text/css">
-		.manageMember {
-			width: 50%;
-			margin: auto;
-		}
-		table {
-			width: 100%;
-			margin-top: 20px;
-		}
-
-	</style>
-
-</head>
+	
 <body>
 	<?php
 	if(isset($_POST['cantidad'])){
@@ -43,7 +28,7 @@
 		$_SESSION['datos'] = count($datos);
 		$_SESSION['matriz'] = $datos;
 		 ?>
-		<table border="1" cellspacing="0" cellpadding="0">
+		<table border="1" cellspacing="0" cellpadding="0" id = "tabla">
 		<thead>
 			<tr>
 				<th><a href = 'location.php?id=codigo'>Codigo</a></th>
@@ -52,13 +37,9 @@
 				<th><a href = 'location.php?id=disponibilidad'>Disponibilidad</a></th>
 				<th><a href = 'location.php?id=cantidad'>Cantidad</a></th>
 				<th><a href = 'location.php?id=encargado'>Encargado</a></th>
-				<th><a href = 'location.php?id=email'>Contacto</a></th>
 				<th><a href = 'location.php?id=sede'>Sede</a></th>
 				<th><a href = 'location.php?id=facultad'>Facultad</a></th>
 				<th>Imagen</th>
-				<th><a href = 'location.php?id=created_at'>Creado</a></th>
-				<th><a href = 'location.php?id=updated_at'>Actualizado</a></th>
-				<th>Acciones</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -72,16 +53,13 @@
 			<td><?php echo $datos[$i]["disponibilidad"]; ?></td>
 			<td><?php echo $datos[$i]["cantidad"]; ?></td>
 			<td><?php echo $datos[$i]["encargado"]; ?></td>
-			<td><?php echo $datos[$i]["email"]; ?></td>
 			<td><?php echo $datos[$i]["sede"]; ?></td>
 			<td><?php echo $datos[$i]["facultad"]; ?></td>
 			<td><img src="Imagenes.php?id=<?php echo $datos[$i]["codigo"];?>" width="100" height="100"/></td>
-			<td><?php echo $datos[$i]["created_at"]; ?></td>
-			<td><?php echo $datos[$i]["updated_at"]; ?></td>
 			<?php echo"
-			<td>
-			<a href='Editar_Equipo.php?id=".$datos[$i]["codigo"]."'><button type='button'>Editar</button></a>
-			<a href='Eliminar_Equipo.php?id=".$datos[$i]["codigo"]."'><button type='button'>Eliminar</button></a>
+			<td id=oculto>
+			<a href='Ver_Equipo.php?id=".$datos[$i]["codigo"]."'></a>
+			<a href='Eliminar_Equipo.php?id=".$datos[$i]["codigo"]."'></a>
 			</td>";
 			?>
 		</tr>
@@ -95,11 +73,11 @@
 ?>
 
 </tbody>
-</table>
+</table><br><br>
 <center><button id='pag' value='anterior'><-</button>
 <label for = "pagina"><?php echo $_SESSION['pagina']?></label>
-<button id='pag' value='siguiente'>-></button></center>
-</div>
+<button id='pag' value='siguiente'>-></button></center><br>
+<a href='../../index.php'><button type='button'>Home</button></a>
 
 </body>
 </html>

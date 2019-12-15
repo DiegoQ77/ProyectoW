@@ -15,7 +15,7 @@ body {
   margin: 0 auto;
   background-color: #fff;
   border: 1px solid rgba(0,0,0,0.1);  
-
+}
   .form-signin-heading,
 	.checkbox {
 	  margin-bottom: 30px;
@@ -28,7 +28,7 @@ body {
 
 
 	input[type="text"] {
-	  margin-bottom: -1px;
+	  margin-bottom: 20px;
 	  border-bottom-left-radius: 0;
 	  border-bottom-right-radius: 0;
 	}
@@ -38,4 +38,4 @@ body {
 	  border-top-left-radius: 0;
 	  border-top-right-radius: 0;
 	}
-}
+

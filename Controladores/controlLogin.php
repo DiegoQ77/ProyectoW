@@ -14,8 +14,8 @@ Class Iniciar {
             if($user->login($username, $password)){
                 session_start();
                 $nameU = $_SESSION['usuario'] = $username;
-                return $nameU;
-          
+                return 'success';
+
             }
             else{
              $b = 'Usuario no existe';

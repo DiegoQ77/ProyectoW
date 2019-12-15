@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	    <link rel = "stylesheet" href="../../assets/css/popcss.css">
 	<title>Agregar Equipo</title>
 
 	<style type="text/css">
@@ -18,7 +19,17 @@
 		}
 
 		table tr th {
-			padding-top: 20px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+        }
+        
+        table td {
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		textarea{
+			width:300px;
+			height:100px;
 		}
 	</style>
 
@@ -26,20 +37,25 @@
 <body>
 
 <fieldset>
-	<legend>Agregar</legend>
+	<legend><h1>Agregar</h1></legend>
 
 	<form action="Creado.php" method="post" enctype="multipart/form-data">
 		<table cellspacing="0" cellpadding="0">	
 			<tr>
-				<th>Categoria</th>
+				<th>Categoria: </th>
 				<td><input type="text" name="categoria" required/></td>
 			</tr>	
 			<tr>
-				<th>Nombre</th>
+				<th>Nombre: </th>
 				<td><input type="text" name="nombre"  required/></td>
 			</tr>
 			<tr>
-				<th>Disponibilidad</th>
+			<tr>
+				<th>Descripcion: </th>
+				<td><textarea name="descripcion" required></textarea>
+			</tr>
+			<tr>
+				<th>Disponibilidad: </th>
 				<td><select name="disponibilidad" required>
 						<option selected hidden></option>
 						<option>Si</option>
@@ -47,11 +63,11 @@
 				</select></td>
 			</tr>
 			<tr>
-				<th>Cantidad</th>
-				<td><input type="number" name="cantidad" required/></td>
+				<th>Cantidad: </th>
+				<td><input type="number" name="cantidad"  min="0" required/></td>
 			</tr>	
 			<tr>
-			<th>Encargado</th>
+			<th>Encargado: </th>
 				<td><select name="encargado" required>
 						<option selected hidden></option>
 						<?php 
@@ -69,7 +85,7 @@
 				</select></td>
 			</tr>
 			<tr>
-				<th>Sede</th>
+				<th>Sede: </th>
 				<td><select name="sede" required>
 						<option selected hidden></option>
 						<?php 
@@ -87,7 +103,7 @@
 				</select></td>
 			</tr>
 			<tr>
-				<th>Facultad</th>
+				<th>Facultad: </th>
 				<td><select name="facultad" required>
 						<option selected hidden></option>
 						<?php 
@@ -106,13 +122,14 @@
 			</tr>
 			<tr>
 				<th>Imagen: </th>
-    			<td><input type="file" name="imagen" id="imagen" required/></td>
+				<td><input type="file" name="imagen" id="imagen" required/></td>
+				
 			</tr>
-			<tr>
-				<td><button type="submit">Guardar</button></td>
-				<td><a href="Inventario.php"><button type="button">Back</button></a></td>
-			</tr>
+
 		</table>
+		<center>
+				<button type="submit">Guardar</button>
+			<a href="Inventario.php"><button type="button">Back</button></a></center>
 	</form>
 
 </fieldset>

@@ -69,7 +69,6 @@ require_once("../../Modelos/Facultades.php");
                 stripos($item['disponibilidad'], $consulta) !== false ||
                 stripos($item['cantidad'], $consulta) !== false ||
                 stripos($item['encargado'], $consulta) !== false ||
-                stripos($item['email'], $consulta) !== false ||
                 stripos($item['sede'], $consulta) !== false ||
                 stripos($item['facultad'], $consulta) !== false) {
                 return true;
@@ -108,6 +107,7 @@ require_once("../../Modelos/Facultades.php");
                     $datoscontrol = array(
                         'categoria' => $_POST['categoria'],
                         'nombre'=> $_POST['nombre'],
+                        'descripcion'=> $_POST['descripcion'],
                         'disponibilidad' => $_POST['disponibilidad'],
                         'cantidad' => $_POST['cantidad'],
                         'encargado' => $_POST['encargado'],
@@ -135,9 +135,10 @@ require_once("../../Modelos/Facultades.php");
             $equipo = new Equipo();
             $anterior = $equipo->buscarEquipos($_POST['id']);
             $datoscontrol = array(
-                'id' => $_POST['id'],
+                'codigo' => $_POST['id'],
                 'categoria' => $_POST['categoria'],
                 'nombre'=> $_POST['nombre'],
+                'descripcion'=> $_POST['descripcion'],
                 'disponibilidad' => $_POST['disponibilidad'],
                 'cantidad' => $_POST['cantidad'],
                 'encargado' => $_POST['encargado'],
@@ -145,7 +146,13 @@ require_once("../../Modelos/Facultades.php");
                 'facultad' => $_POST['facultad'],
             );
              if ($_FILES['imagen']['error'] > 0){
-                $respuesta = $equipo->editarEquipo($datoscontrol, $anterior);
+                 $comparacion = array_values(array_diff($anterior,$datoscontrol));
+                 if(empty($comparacion)){
+                    $respuesta = "No se realizo ningun cambio en los valores";
+                 }
+                 else{
+                    $respuesta = $equipo->editarEquipo($datoscontrol, $anterior);
+                 }
             }
              else{
                 $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
