@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require_once("../../Controladores/Control_Inventario.php");
 $control = new Control_Inventario();
 $data = $control->recuperarEquipo();
@@ -12,7 +12,7 @@ $facultades = $control->obtenerListaFacultades();
 <html>
 <head>
 	<title>Ver Equipo</title>
-
+    <link rel = "stylesheet" href="../../assets/css/popcss.css">
 	<style type="text/css">
 		fieldset {
 			margin: auto;
@@ -74,14 +74,45 @@ $facultades = $control->obtenerListaFacultades();
 				<th>Facultad: </th>
 				<td><?php echo $data['facultad'];?></td>
             </tr>
-            <input type="hidden" name="id" value="<?php echo $data['codigo']?>" />
         </table>
         <center>
+                <?php 
+                if(isset($_SESSION['usuario'])){
+                    ?>
                <a href="Editar_Equipo.php?id=<?php echo $data["codigo"]?>"><button type = "button">Editar Equipo</button></a>
-                <a href="Eliminar_Equipo.php?id=<?php echo $data["codigo"]?>"><button type = "button">Eliminar Equipo</button></a>
+                <button type = "button" onclick="document.getElementById('id02').style.display='block'">Eliminar Equipo</button>
+                <?php
+                }
+                ?>
                 <a href="Solicitar_Equipo.php?id=<?php echo $data["codigo"]?>"><button type = "button">Solicitar Equipo</button></a>
 				<a href="location.php"><button type="button">Regresar</button></a>
              </center>
 </fieldset>
+
+
+<div id="id02" class="modal">
+  
+  <form class="modal-content animate" action="Eliminado.php" method="POST">
+  <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+      <input type="hidden" name="id" value="<?php echo $data['codigo']?>" />
+      <center><h1>De verdad deseas eliminar este equipo?</h1>
+      <button type="submit" name="submit">Si</button>
+      <button type="button" onclick="document.getElementById('id02').style.display='none'">Regresar</button></center>
+
+    </div>
+
+   
+  </form>
+<script>
+var modal = document.getElementById('id02');
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 </body>
 </html>

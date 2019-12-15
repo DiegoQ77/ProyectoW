@@ -6,26 +6,21 @@
 
 require_once '../../Controladores/controlLogin.php';
 
-if($_POST['submit']){
+if(isset($_POST['username']) && isset($_POST['password'])){
 $username = $_POST['username'];
 $password = $_POST['password'];
-var_dump($password);
 $user = new Iniciar();
 $resp = $user->entrar($username,$password);
-var_dump($resp);
-
-echo "Bienvenido a la app";
-echo "<br>";
-
-
-}else{
-        echo 'No se recibio nada';
-    }
-    
-
+if($resp == 'success'){
+    echo "<meta http-equiv=Refresh content=0;url=index.php>";
+}
+else{
+echo $resp;
+}
+}
 ?>
 
 
 
-<a href="../../Vistas/usuarios/cerrarS.php">cerrar sesion</a>
+
 

@@ -12,7 +12,7 @@ $facultades = $control->obtenerListaFacultades();
 <html>
 <head>
 	<title>Editar Equipo</title>
-
+    <link rel = "stylesheet" href="../../assets/css/popcss.css">
 	<style type="text/css">
 		fieldset {
 			margin: auto;
@@ -134,11 +134,35 @@ $facultades = $control->obtenerListaFacultades();
 				<input type="hidden" name="id" value="<?php echo $data['codigo']?>" />
 		</table>
 		<center>
-		<button type="submit">Guardar Cambios</button>
+		<button type = "button" onclick="document.getElementById('id03').style.display='block'">Guardar Cambios</button>
 		<td><a href="Ver_Equipo.php?id=<?php echo $data["codigo"]?>"><button type = "button">Regresar</button></a>
 				</center>
-	</form>
 
+	<div id="id03" class="modal">
+  
+  <div class="modal-content animate" >
+  <div class="imgcontainer">
+      <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+      <input type="hidden" name="id" value="<?php echo $data['codigo']?>" />
+      <center><h1>De verdad deseas actualizar este equipo?</h1>
+      <button type="submit" name="submit">Si</button>
+      <button type="button" onclick="document.getElementById('id03').style.display='none'">Regresar</button></center>
+
+    </div>
+
+   
+	</div>
+	</form>
+<script>
+var modal = document.getElementById('id03');
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 </fieldset>
 </body>
 </html>

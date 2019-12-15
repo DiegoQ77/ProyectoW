@@ -30,7 +30,19 @@
                         <a href="../../Vistas/Equipos/location.php">Inventario</a>
                     </li>
                     <li>
-                        <a href="../../Vistas/usuarios/ingrese.php">Acceder</a>
+                    <?php if(!isset($_SESSION['usuario'])){
+                        ?>
+                    <button onclick="document.getElementById('id01').style.display='block'">Iniciar Sesion</button>
+                    <?php
+                    }
+                    else{
+                        ?>
+                        <button onclick="document.getElementById('id04').style.display='block'">Cerrar Sesion</button>
+                    <?php
+                } 
+                ?> 
+                       <link rel = "stylesheet" href="assets/css/popcss.css">
+                        
                     </li>
                    
                 </ul>
@@ -74,8 +86,52 @@
             </footer>
 
         </div>
+
+
+        <div id="id01" class="modal">
+  
+  <div class="modal-content animate">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" id="close" class="close" title="Close Modal">&times;</span>
+      <img src="assets/img/loginS.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="username" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+        
+      <button type="submit" id="login" name="submit">Login</button>
+      <div id="respuesta"></div>
+    </div>
+
+   
+</div>
+</div>
+
+<div id="id04" class="modal">
+  
+  <div class="modal-content animate">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id04').style.display='none'" id="close" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+      <center><h1>De verdad deseas Salir?</h1>
+      <a href="../../Vistas/usuarios/cerrarS.php"><button type = "button">Si</button></a>
+      <button type="button" onclick="document.getElementById('id04').style.display='none'">Regresar</button></center>
+
+    </div>
+
+   
+</div>
+</div>
+        
         <script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
         <script type="text/javascript" src="../../assets/js/slider.js"></script>
+        <script type="text/javascript" src="../../assets/js/inicio.js"></script>
     </body>
 
 

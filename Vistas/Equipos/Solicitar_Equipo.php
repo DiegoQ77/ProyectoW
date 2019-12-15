@@ -8,6 +8,7 @@ $data = $control->recuperarEquipo();
 <!DOCTYPE html>
 <html>
 <head>
+<link rel = "stylesheet" href="../../assets/css/popcss.css">
 	<title>Solicitar Equipo</title>
 
 	<style type="text/css">

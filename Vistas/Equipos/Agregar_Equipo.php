@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	    <link rel = "stylesheet" href="../../assets/css/popcss.css">
 	<title>Agregar Equipo</title>
 
 	<style type="text/css">
@@ -121,13 +122,14 @@
 			</tr>
 			<tr>
 				<th>Imagen: </th>
-    			<td><input type="file" name="imagen" id="imagen" required/></td>
+				<td><input type="file" name="imagen" id="imagen" required/></td>
+				
 			</tr>
-			<tr>
-				<td><button type="submit">Guardar</button></td>
-				<td><a href="Inventario.php"><button type="button">Back</button></a></td>
-			</tr>
+
 		</table>
+		<center>
+				<button type="submit">Guardar</button>
+			<a href="Inventario.php"><button type="button">Back</button></a></center>
 	</form>
 
 </fieldset>

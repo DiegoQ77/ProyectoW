@@ -4,6 +4,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
+	
 <link rel = "stylesheet" href="../../assets/css/inventario.css">
 </head>
 <body>
@@ -11,7 +12,12 @@ session_start();
 <section class="principal">
 <center><h1>SISTEMA DE INVENTARIO</h1></center>	<br><br>
 <div class="manageMember">
+	<?php if(isset($_SESSION['usuario'])){
+		?>
 	<a href="Agregar_Equipo.php"><button type="button">Registrar Nuevo Equipo</button></a>
+	<?php
+	}
+	?>
 	<br><br>
 		<label for="caja_busqueda">Buscar</label>
 		<input type="text" name="caja_busqueda" id="caja_busqueda"></input>

@@ -6,6 +6,7 @@
 
 <!DOCTYPE html>
 <html>
+	
 <body>
 	<?php
 	if(isset($_POST['cantidad'])){
@@ -77,7 +78,6 @@
 <label for = "pagina"><?php echo $_SESSION['pagina']?></label>
 <button id='pag' value='siguiente'>-></button></center><br>
 <a href='../../index.php'><button type='button'>Home</button></a>
-</div>
 
 </body>
 </html>
