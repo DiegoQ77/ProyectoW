@@ -119,7 +119,7 @@ $facultades = $control->obtenerListaFacultades();
 				<tr>
 					<th>Imagen: </th>
 					<td>
-						<input type="file" name="imagen" id="imagen" required/>
+						<input type="file" name="file" id="file" accept="image/*" required/>
 					</td>
 
 				</tr>
@@ -134,7 +134,8 @@ $facultades = $control->obtenerListaFacultades();
 		</form>
 
 	</fieldset>
-
+	<script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/formularios.js"></script>					
 </body>
 
 </html>

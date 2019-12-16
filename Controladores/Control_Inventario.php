@@ -113,22 +113,11 @@ Class Control_Inventario {
 	}
 
 	public function ctlAgregarEquipo() {
-		if(!isset($_FILES['imagen']) || $_FILES['imagen']['error'] > 0) {
-			$respuesta = "Ha ocurrido un error subiendo la imagen";
-		}
-		else {
-			$datosimagen = $this->validarImagen();
-			if(is_array($datosimagen)) {
-				$datoscontrol = $this->armarArreglo();
-				$datoscontrol['imagen'] = $datosimagen['imagen'];
-				$datoscontrol['tipo'] = $datosimagen['tipo'];
-				$equipo = new Equipo();
-				$respuesta = $equipo->añadirEquipo($datoscontrol);
-			}
-			else {
-				$respuesta = "Imagen no permitida, es un tipo de archivo prohibido o excede el tamano de $datosimagen Kilobytes.";
-			}
-		}
+		$datoscontrol = $this->armarArreglo();
+		$datoscontrol['imagen'] = $datosimagen['imagen'];
+		$datoscontrol['tipo'] = $datosimagen['tipo'];
+		$equipo = new Equipo();
+		$respuesta = $equipo->añadirEquipo($datoscontrol);
 		return $respuesta;
 	}
 
@@ -140,28 +129,12 @@ Class Control_Inventario {
 
 	public function ctlEditarEquipo() {
 		$equipo = new Equipo();
-		$anterior = $equipo->buscarEquipos($_POST['id']);
 		$datoscontrol = $this->armarArreglo();
-		if($_FILES['imagen']['error'] > 0) {
-			$comparacion = array_values(array_diff($anterior, $datoscontrol));
-			if(empty($comparacion)) {
-				$respuesta = "No se realizo ningun cambio en los valores";
-			}
-			else {
-                $respuesta = $equipo->editarEquipo($datoscontrol, $anterior);
-			}
+		if(isset($_FILES['imagen'])) {
+			$datoscontrol['imagen'] = $datosimagen['imagen'];
+			$datoscontrol['tipo'] = $datosimagen['tipo'];
 		}
-		else {
-			$datosimagen = $this->validarImagen();
-			if(is_array($datosimagen)) {
-				$datoscontrol['imagen'] = $datosimagen['imagen'];
-				$datoscontrol['tipo'] = $datosimagen['tipo'];
-				$respuesta = $equipo->editarEquipo($datoscontrol, $anterior);
-			}
-			else {
-				$respuesta = "Imagen no permitida, es un tipo de archivo prohibido o excede el tamano de $datosimagen Kilobytes.";
-			}
-		}
+         $respuesta = $equipo->editarEquipo($datoscontrol, $anterior);
 		return $respuesta;
 	}
 
@@ -200,24 +173,5 @@ Class Control_Inventario {
 		return $arreglo;
 	}
 
-	public function validarImagen() {
-		$permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
-		$limite_kb = 1024;
-		if(in_array($_FILES['imagen']['type'], $permitidos) && $_FILES['imagen']['size'] <= $limite_kb * 1024) {
-			$imagen_temporal = $_FILES['imagen']['tmp_name'];
-			$tipo = $_FILES['imagen']['type'];
-			$fp = fopen($imagen_temporal, 'r+b');
-			$data = fread($fp, filesize($imagen_temporal));
-			fclose($fp);
-			$datosimagen = array(
-				'imagen' => $data,
-				'tipo' => $tipo
-			);
-			return $datosimagen;
-		}
-		else {
-			return $limite_kb;
-		}
-	}
 }
 ?>

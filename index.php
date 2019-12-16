@@ -67,6 +67,7 @@ $_SESSION['pagina']=1 ;
 			</div>
 
 			<div class="container">
+			<center>
 				<label for="uname"><b>Username</b>
 				</label>
 				<input type="text" placeholder="Enter Username" name="username" required>
@@ -74,6 +75,8 @@ $_SESSION['pagina']=1 ;
 				</label>
 				<input type="password" placeholder="Enter Password" name="password" required>
 				<button type="submit" id="login" name="submit">Login</button>
+				<button type="button" onclick="document.getElementById('id01').style.display='none'">Regresar</button>
+				</center>
 				<div id="respuesta"></div>
 			</div>
 		</div>

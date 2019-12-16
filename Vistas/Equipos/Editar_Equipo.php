@@ -54,7 +54,7 @@ $facultades = $control->obtenerListaFacultades();
 					<laber for="cambiar">Cambiar Imagen:<label>
 						<br>
 						<br>
-						<input type="file" name="imagen" id="imagen"/>
+						<input type="file" name="file" id="file" accept="image/*"/>
 				</div>
 				<tr>
 					<th>Categoria:</th>
