@@ -55,6 +55,7 @@ $facultades = $control->obtenerListaFacultades();
 						<br>
 						<br>
 						<input type="file" name="file" id="file" accept="image/*"/>
+						<p id="mensaje"></p>
 				</div>
 				<tr>
 					<th>Categoria:</th>

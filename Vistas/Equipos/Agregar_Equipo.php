@@ -121,10 +121,10 @@ $facultades = $control->obtenerListaFacultades();
 					<td>
 						<input type="file" name="file" id="file" accept="image/*" required/>
 					</td>
-
 				</tr>
 
 			</table>
+			<th><p id="mensaje"></p></th>
 			<center>
 				<button type="submit">Guardar</button>
 				<a href="Inventario.php">
