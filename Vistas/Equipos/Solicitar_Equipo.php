@@ -72,7 +72,7 @@ $data = $control->recuperarEquipo();
 				<tr>
 					<th>Correo: </th>
 					<td>
-						<input type="text" name="correo" required/>
+						<input type="email" name="correo" required/>
 					</td>
 				</tr>
 				<tr>
