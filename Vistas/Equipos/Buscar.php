@@ -6,7 +6,15 @@
 
 <!DOCTYPE html>
 <html>
-	
+    <meta charset="utf-8"/>
+    
+    
+    <link rel = "stylesheet" href="../../assets/css/inventario.css">
+    
+    
+    
+    
+    
 <body>
 	<?php
 	if(isset($_POST['cantidad'])){
@@ -28,7 +36,10 @@
 		$_SESSION['datos'] = count($datos);
 		$_SESSION['matriz'] = $datos;
 		 ?>
-		<table border="1" cellspacing="0" cellpadding="0" id = "tabla">
+    
+    
+    
+		<table border="1px" id = "tabla">
 		<thead>
 			<tr>
 				<th><a href = 'location.php?id=codigo'>Codigo</a></th>
@@ -74,10 +85,68 @@
 
 </tbody>
 </table><br><br>
-<center><button id='pag' value='anterior'><-</button>
+
+<style>
+.button2 {
+  background-color: #2a479e;
+  border: none;
+  width: 24px;
+  color: white;
+  padding: 8px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 9px 56px;
+  cursor: pointer;
+ font: 150% sans-serif;
+ 
+}
+
+.button3{
+     background-color: #2a479e;
+  border: none;
+  color: white;
+  padding: 8px 11px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin:  14px 630px ;
+  cursor: pointer;
+ font: 150% sans-serif;
+ width: 100px;
+    
+    
+}
+
+
+
+
+</style>
+
+
+<center>
+        <button class="button2" id='pag' value='anterior'><</button>
 <label for = "pagina"><?php echo $_SESSION['pagina']?></label>
-<button id='pag' value='siguiente'>-></button></center><br>
-<a href='../../index.php'><button type='button'>Home</button></a>
+<button  class="button2" value='siguiente'> ></button></center><br>
+
+
+
+<a href='../../index.php'>
+    
+        <button class="button3"  type='button'>Home</button></a>
 
 </body>
+
+
+<br>
+
+            <footer id="footer">
+                <p>Desarrollado por el grupo 4 ISF131  &copy; <?= date('Y') ?></p>
+            </footer>
+
+
+
+
 </html>

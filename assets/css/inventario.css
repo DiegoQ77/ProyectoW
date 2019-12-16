@@ -1,41 +1,45 @@
+#tabla {
+  margin:auto;
+  
+    border: 1px solid black;
+}
 
-#tabla tr {
-    background-color: #eee;
-    border-top: 1px solid #fff;
+#tabla td, #tabla th {
+ 
+
+  border: 1px solid black;
+  border-color: black;
+
 }
-#tabla tr:hover {
-    background-color: #ccc;
-}
+
+
+
+#tabla tr:hover {background-color: #ddd;}
+
 #tabla th {
-    background-color:  #eee;
-    border-top: 1px solid black;
+  padding-top: 22px;
+  padding-bottom: 28px;
+  padding-left: 34px;
+  padding-right: 34px;
+  text-align: center;
+  background-color: #2a479e;
+  color: black;
+   border: 1px solid black;
+   
+  
 }
 
-#tabla th,  #tabla td {
-    padding: 3px 5px;
+.alinear{
+    
+  
+ 
+   
+   display: flex;
+  justify-content: space-between;
+   
+
+
 }
 
-#tabla td {
-    padding: 3px 5px;
-}
 
-#tabla td:hover {
-    cursor: pointer;
-}
 
-#tabla #oculto{
-    display: none;
-}
-
-a, a:hover, a:visited{
-    text-decoration: none;
-    color: black;
-}
-.manageMember{
-    text-align: center;
-}
-
-#tabla{
-    margin: 0 auto;
-    width: 50%;
-}

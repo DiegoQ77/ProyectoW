@@ -12,6 +12,7 @@ $facultades = $control->obtenerListaFacultades();
 <html>
 <head>
 	<title>Editar Equipo</title>
+        
     <link rel = "stylesheet" href="../../assets/css/popcss.css">
 	<style type="text/css">
 		fieldset {

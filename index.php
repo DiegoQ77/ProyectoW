@@ -69,17 +69,39 @@
   <div class="modal-content animate">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" id="close" class="close" title="Close Modal">&times;</span>
+    
+    
+      <div class="logoA">
       <img src="assets/img/loginS.png" alt="Avatar" class="avatar">
+      </div> 
+    
+    
+    
     </div>
     <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="username" required>
-
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="password" required>
         
+        
+        
+        <label for="uname"><b>Username</b></label><br><br>
+      <input type="text" placeholder="Enter Username" name="username" required><br><br>
+
+      <label for="psw"><b>Password</b></label><br><br>
+      <input type="password" placeholder="Enter Password" name="password" required><br><br>
+      
+      
+      <div class="boton2">
+          
+      
+      
       <button type="submit" id="login" name="submit">Login</button>
-      <div id="respuesta"></div>
+     
+      </div>
+      
+      <div id="respuesta">
+          
+      </div>
+      
+      
     </div>
 </div>
 </div>
@@ -87,6 +109,7 @@
 <div id="id04" class="modal">
   
   <div class="modal-content animate">
+      
     <div class="imgcontainer">
       <span onclick="document.getElementById('id04').style.display='none'" id="close" class="close" title="Close Modal">&times;</span>
     </div>
@@ -96,6 +119,7 @@
       <a href="Vistas/usuarios/cerrarS.php"><button type = "button">Si</button></a>
       <button type="button" onclick="document.getElementById('id04').style.display='none'">Regresar</button></center>
     </div>
+      
 </div>
 </div>  
         <script type="text/javascript" src="assets/js/jquery.min.js"></script>

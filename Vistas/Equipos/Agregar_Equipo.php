@@ -10,8 +10,16 @@
 <head>
 	    <link rel = "stylesheet" href="../../assets/css/popcss.css">
 	<title>Agregar Equipo</title>
-
+<meta charset="utf-8"/>	
 	<style type="text/css">
+            
+            
+            body{
+                height: 100%;
+                  background: url(http://localhost/Master-php/PROYECTO/assets/img/bg.png);
+            }
+            
+            
 		fieldset {
 			margin: auto;
 			margin-top: 100px;
@@ -37,7 +45,7 @@
 <body>
 
 <fieldset>
-	<legend><h1>Agregar</h1></legend>
+	<legend><h1>Agregar Equipo</h1></legend>
 
 	<form action="Creado.php" method="post" enctype="multipart/form-data">
 		<table cellspacing="0" cellpadding="0">	

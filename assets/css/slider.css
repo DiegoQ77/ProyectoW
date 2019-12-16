@@ -87,6 +87,14 @@ img {vertical-align: middle;
   animation-duration: 1.5s;
 }
 
+
+#respuesta{
+    
+    color: red;
+    text-align: center;
+    
+}
+
 @-webkit-keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}

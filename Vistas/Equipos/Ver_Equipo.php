@@ -11,10 +11,11 @@ $facultades = $control->obtenerListaFacultades();
 <!DOCTYPE html>
 <html>
 <head>
+    
 	<title>Ver Equipo</title>
     <link rel = "stylesheet" href="../../assets/css/popcss.css">
-	<style type="text/css">
-		fieldset {
+    <style>
+    fieldset {
 			margin: auto;
 			margin-top: 100px;
 			width: 50%;
@@ -33,6 +34,9 @@ $facultades = $control->obtenerListaFacultades();
         img{
             float: right;
         }
+        
+    
+    
 	</style>
 
 </head>
@@ -41,6 +45,8 @@ $facultades = $control->obtenerListaFacultades();
 <fieldset>
 	<legend><h1><?php echo $data["codigo"] ." - ".$data["nombre"];?></h1></legend>
 	<table cellspacing="0" cellpadding="0">	
+            
+            
             <img src="Imagenes.php?id=<?php echo $data["codigo"];?>" width="400" height="400"/>
 			<tr>
 				<th>Categoria: </th>

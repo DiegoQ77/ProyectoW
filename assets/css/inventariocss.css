@@ -1,25 +1,21 @@
 /*GENERALES*/
 
-*{
-    padding: 0px;
-    margin: 0px;
-    font-family: sans-serif, Helvetica, Arial;
-}
+
 
 body{
     background: url(../img/bg.png);
 }
 
 a{
-    color: #003d72;
+    color: white;
 }
 
 a:visited{
-    color: #003d72;
+    color: white;
 }
 
 a:hover{
-   color: #003d72;
+   color: white;
 }
 /*CONTAINER*/
 #container{
@@ -38,7 +34,7 @@ a:hover{
     padding-top: 10px;
     float:left;
     height: 120px;
-    width: 300px;
+    width: 350px;
 }
 #logo a{
     float:right;
@@ -95,9 +91,7 @@ a:hover{
 #menu a:hover{
     background: #01B1EA;
 }
-#slider{       
-height: 150px;
-}
+
 /*Central Estilos para nuestro slider*/
 * {box-sizing:border-box}
 /* Slideshow container */
@@ -134,8 +128,4 @@ height: 150px;
     border-top: 4px solid #01B1EA;
 }
 
-.slider{
-    
-    
-    height: 300px;
-}
+
