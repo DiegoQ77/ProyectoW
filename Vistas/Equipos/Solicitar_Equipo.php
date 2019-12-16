@@ -40,15 +40,15 @@ $data = $control->recuperarEquipo();
 		<legend>
 			<h1>Solicitar</h1>
 		</legend>
-		<form  id="form1" method="post" enctype="multipart/form-data">
+		<form id="form1" action="Enviado.php" method="post" >
 			<table cellspacing="0" cellpadding="0">
 				<img src="Imagenes.php?id=<?php echo $data['codigo'];?>" width="400" height="400" />
 				<br>
 				<br>
 				<tr>
-					<th>Nombre: </th>
+					<th>Nombre Completo: </th>
 					<td>
-						<input type="text" name="nombre" required/>
+						<input type="text" name="completo" required/>
 					</td>
 				</tr>
 				<tr>
@@ -78,7 +78,7 @@ $data = $control->recuperarEquipo();
 				<tr>
 					<th>Cantidad a Solicitar: </th>
 					<td>
-						<input type="number" name="cantidad" min="1" required/>
+						<input type="number" name="pedido" min="1" required/>
 					</td>
 				</tr>
 				<tr>
@@ -88,6 +88,9 @@ $data = $control->recuperarEquipo();
 				</tr>
 
 			</table>
+			<input type="hidden" name="nombre" value="<?php echo $data['nombre'];?>"/>
+			<input type="hidden" name="id" value="<?php echo $data['codigo'];?>"/>
+			<input type="hidden" name="email" value="<?php echo $data['email'];?>"/>
 			<center>
 				<button type="button" id="validar1">Enviar</button>
 				<button type="button" style="display:none;" id="popup1" onclick="document.getElementById('id05').style.display='block'"></button>
