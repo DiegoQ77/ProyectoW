@@ -28,19 +28,19 @@ function salir_popup(){
 }
 
 var modal = document.getElementById('id01');
-var modal2 = document.getElementById('id04');
+var modal4 = document.getElementById('id04');
 
-window.onclick = function(event) {
+window.addEventListener("click", function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
         $('input:text[name=username]').val("");
         $('input:password[name=password]').val("");
         salir_popup();
     }
-    else if (event.target == modal2){
-        modal2.style.display = "none";
+    else if (event.target == modal4){
+        modal4.style.display = "none";
     }
-}
+})
 
 
 
@@ -56,4 +56,5 @@ $(document).on('click','#close', function(){
     $('input:password[name=password]').val("");
     salir_popup();
 });
+
 
