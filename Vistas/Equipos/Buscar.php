@@ -20,8 +20,8 @@ $control = new Control_Inventario();
 		} 
 		else {
 			$datos = $control-> obtenerListaEquipos();
-			$numero = $control->obtenerCantidadEquipos();
 		}
+		$numero = $control->obtenerCantidadEquipos();
 		if(is_array($datos)) {
 			$_SESSION['datos'] = count($datos);
 			$_SESSION['matriz'] = $datos;

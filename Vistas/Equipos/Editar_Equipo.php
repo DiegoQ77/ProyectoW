@@ -54,7 +54,7 @@ $facultades = $control->obtenerListaFacultades();
 					<laber for="cambiar">Cambiar Imagen:<label>
 						<br>
 						<br>
-						<input type="file" name="file" id="file" accept="image/*"/>
+						<input type="file" name="imagen" id="file" accept="image/*"/>
 						<p id="mensaje"></p>
 				</div>
 				<tr>
@@ -157,7 +157,7 @@ $facultades = $control->obtenerListaFacultades();
 						<span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
 					</div>
 					<center>
-						<h1>De verdad deseas actualizar este equipo?</h1>
+						<h1>¿Deseas guardar estos cambios?</h1>
 						<button type="submit" name="submit">Si</button>
 						<button type="button" onclick="document.getElementById('id03').style.display='none'">Regresar</button>
 					</center>

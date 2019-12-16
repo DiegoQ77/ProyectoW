@@ -119,7 +119,7 @@ $facultades = $control->obtenerListaFacultades();
 				<tr>
 					<th>Imagen: </th>
 					<td>
-						<input type="file" name="file" id="file" accept="image/*" required/>
+						<input type="file" name="imagen" id="file" accept="image/*" required/>
 					</td>
 				</tr>
 
