@@ -114,13 +114,6 @@ Class Control_Inventario {
 
 	public function ctlAgregarEquipo() {
 		$datoscontrol = $this->armarArreglo();
-		$imagen_temporal = $_FILES['imagen']['tmp_name'];
-        $tipo = $_FILES['imagen']['type'];
-        $fp = fopen($imagen_temporal, 'r+b');
-        $data = fread($fp, filesize($imagen_temporal));
-        fclose($fp);
-		$datoscontrol['imagen'] = $data;
-		$datoscontrol['tipo'] = $tipo;
 		$equipo = new Equipo();
 		$respuesta = $equipo->añadirEquipo($datoscontrol);
 		return $respuesta;
@@ -136,15 +129,6 @@ Class Control_Inventario {
 		$equipo = new Equipo();
 		$anterior = $equipo->buscarEquipos($_POST['id']);
 		$datoscontrol = $this->armarArreglo();
-		if($_FILES['imagen']['error'] == 0) {
-			$imagen_temporal = $_FILES['imagen']['tmp_name'];
-        	$tipo = $_FILES['imagen']['type'];
-        	$fp = fopen($imagen_temporal, 'r+b');
-        	$data = fread($fp, filesize($imagen_temporal));
-        	fclose($fp);
-			$datoscontrol['imagen'] = $data;
-			$datoscontrol['tipo'] = $tipo;
-		}
          $respuesta = $equipo->editarEquipo($datoscontrol, $anterior);
 		return $respuesta;
 	}
@@ -182,6 +166,15 @@ Class Control_Inventario {
 		}
 		if(isset($_POST['email'])) {
 			$arreglo['email'] = $_POST['email'];
+		}
+		if($_FILES['imagen']['error'] == 0) {
+			$imagen_temporal = $_FILES['imagen']['tmp_name'];
+        	$tipo = $_FILES['imagen']['type'];
+        	$fp = fopen($imagen_temporal, 'r+b');
+        	$data = fread($fp, filesize($imagen_temporal));
+        	fclose($fp);
+			$arreglo['imagen'] = $data;
+			$arreglo['tipo'] = $tipo;
 		}
 		return $arreglo;
 	}
