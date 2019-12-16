@@ -81,8 +81,8 @@ $facultades = $control->obtenerListaFacultades();
 							<option selected hidden>
 								<?php echo $data['disponibilidad'];?>
 							</option>
-							<option>Si</option>
-							<option>No</option>
+							<option>Disponible</option>
+							<option>No Disponible</option>
 						</select>
 					</td>
 				</tr>

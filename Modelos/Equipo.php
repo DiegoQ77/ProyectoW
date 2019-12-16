@@ -120,8 +120,10 @@ class Equipo {
 		while($row = mysqli_fetch_assoc($resp)) {
 			$ultimo_id = $row['codigo'];
 		}
-		$sql = "ALTER TABLE equipos AUTO_INCREMENT = $ultimo_id";
-		$db->query($sql);
+		if(isset($ultimo_id)){
+			$sql = "ALTER TABLE equipos AUTO_INCREMENT = $ultimo_id";
+			$db->query($sql);
+		}
 		$db->close();
 	}
 }

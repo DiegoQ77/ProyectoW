@@ -66,8 +66,8 @@ $facultades = $control->obtenerListaFacultades();
 					<td>
 						<select name="disponibilidad" required>
 							<option selected hidden></option>
-							<option>Si</option>
-							<option>No</option>
+							<option>Disponible</option>
+							<option>No Disponible</option>
 						</select>
 					</td>
 				</tr>
@@ -128,7 +128,7 @@ $facultades = $control->obtenerListaFacultades();
 			<center>
 				<button type="submit">Guardar</button>
 				<a href="Inventario.php">
-					<button type="button">Back</button>
+					<button type="button">Regresar</button>
 				</a>
 			</center>
 		</form>

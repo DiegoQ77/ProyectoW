@@ -41,8 +41,7 @@ $_SESSION['pagina']=1 ;
 		<br>
 		<br>
 		<br>
-		<br>
-		<br>
+
 
 		<!-- CONTENIDO CENTRAL -->
 		<div class="slider">
@@ -51,8 +50,7 @@ $_SESSION['pagina']=1 ;
 			<br>
 			<br>
 			<br>
-			<br>
-			<br>
+			
 			<footer id="footer">
 				<p>Desarrollado por el grupo 4 ISF131 &copy;
 					<?=date( 'Y') ?>

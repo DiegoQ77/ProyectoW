@@ -62,7 +62,7 @@ Class Control_Inventario {
 	}
 
 	public function cambiarPagina() {
-		if($_POST['pagina'] == 'anterior' && $_SESSION['pagina'] > 1) {
+		if($_POST['pagina'] == 'anterior') {
 			$_SESSION['inicio'] = $_SESSION['inicio'] - $_SESSION['cantidad'];
 			$_SESSION['pagina'] = $_SESSION['pagina'] - 1;
 		}
