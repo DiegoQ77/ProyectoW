@@ -10,7 +10,6 @@ $_SESSION['pagina']=1 ;
 	<meta charset="utf-8" />
 	<title>Inventario</title>
 	<link rel="stylesheet" href="assets/css/indexcss.css">
-	<link rel="stylesheet" href="assets/css/popcss.css">
 </head>
 <body>
 	<div id="container">
