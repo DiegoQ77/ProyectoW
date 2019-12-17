@@ -8,39 +8,8 @@ Class Control_Inventario {
 
 	public function obtenerListaEquipos() {
         $equipo = new Equipo();
-        $parametros = array(
-            'inicio' => $_SESSION['inicio'],
-            'final' => $_SESSION['cantidad'],
-            'id',
-            'orden'
-        );
-        if(isset($_SESSION['id'])){
-            $parametros['id'] = $_SESSION['id'];
-            $parametros['orden'] = $_SESSION['orden'];
-        }
-		$result = $equipo->obtenerEquipos($parametros);
+		$result = $equipo->obtenerEquipos();
 		return $result;
-    }
-
-    public function obtenerCantidadEquipos() {
-		$equipo = new Equipo();
-		$respuesta = $equipo->RecuperarNumeroFilas();
-		return $respuesta;
-	}
-    
-    public function  cambiarOrden(){
-        if($_GET['id'] == $_SESSION['id']) {
-            if($_SESSION['orden'] == 'ASC') {
-                $_SESSION['orden'] = 'DESC';
-            }
-            else {
-                $_SESSION['orden'] = 'ASC';
-            }
-        }
-        else {
-            $_SESSION['orden'] = 'ASC';
-            $_SESSION['id'] = $_GET['id'];
-        }
     }
 
 	public function obtenerListaPersonas() {
@@ -59,50 +28,6 @@ Class Control_Inventario {
 		$facultad = new Facultades();
 		$result = $facultad->obtenerFacultades();
 		return $result;
-	}
-
-	public function cambiarPagina() {
-		if($_POST['pagina'] == 'anterior') {
-			$_SESSION['inicio'] = $_SESSION['inicio'] - $_SESSION['cantidad'];
-			$_SESSION['pagina'] = $_SESSION['pagina'] - 1;
-		}
-		else if($_POST['pagina'] == 'siguiente') {
-			$_SESSION['inicio'] = $_SESSION['inicio'] + $_SESSION['cantidad'];
-			$_SESSION['pagina'] = $_SESSION['pagina'] + 1;
-		}
-	}
-
-	public function cambiarCantidadEquipos() {
-		$_SESSION['cantidad'] = $_POST['cantidad'];
-		$_SESSION['inicio'] = 0;
-		$_SESSION['pagina'] = 1;
-	}
-
-	public function filtrarListaEquipos() {
-		$equipo = new Equipo();
-		$consulta = $_POST['consulta'];
-		if(isset($_SESSION['matriz'])) {
-			$data = $_SESSION['matriz'];
-			$result = array_values(array_filter($data, function($item) use($consulta) {
-				if(stripos($item['codigo'], $consulta) !== false ||
-					stripos($item['categoria'], $consulta) !== false ||
-					stripos($item['nombre'], $consulta) !== false ||
-					stripos($item['disponibilidad'], $consulta) !== false ||
-					stripos($item['cantidad'], $consulta) !== false ||
-					stripos($item['encargado'], $consulta) !== false ||
-					stripos($item['sede'], $consulta) !== false ||
-					stripos($item['facultad'], $consulta) !== false) {
-					return true;
-				}
-				return false;
-			}));
-		}
-		if(empty($result)) {
-			return "No hay Datos";
-		}
-		else {
-			return $result;
-		}
 	}
 
 	public function recuperarImagen() {

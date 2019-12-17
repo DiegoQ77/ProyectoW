@@ -2,22 +2,15 @@
 require_once("../../Modelos/Conexion.php");
 class Equipo {
 
-	public function obtenerEquipos($parametros) {
+	public function obtenerEquipos() {
 		$conexion = new Conexion();
         $db = $conexion->conectar();
-        $sql = "SELECT codigo, categoria, nombre,disponibilidad, cantidad,full_name AS encargado, s.sede as sede, unidad_facultad as facultad FROM equipos e LEFT JOIN sedes s ON e.sede = s.id LEFT JOIN unidades_facultades uf ON e.facultad = uf.id LEFT JOIN personas p  ON e.encargado = p.id INNER JOIN user_persona up on up.id_user = p.id INNER JOIN users u on up.id_user = u.id";
-        if(isset($parametros['id']) && isset($parametros['orden'])){
-            $sql = "{$sql} ORDER BY {$parametros['id']} {$parametros['orden']}";
-        }
-        else{
-            $sql = "{$sql} ORDER BY codigo";
-        }
-        $sql = "{$sql} LIMIT {$parametros['inicio']} , {$parametros['final']}";
+        $sql = "SELECT codigo, categoria, nombre,disponibilidad, cantidad,full_name AS encargado, s.sede as sede, unidad_facultad as facultad FROM equipos e LEFT JOIN sedes s ON e.sede = s.id LEFT JOIN unidades_facultades uf ON e.facultad = uf.id LEFT JOIN personas p  ON e.encargado = p.id INNER JOIN user_persona up on up.id_user = p.id INNER JOIN users u on up.id_user = u.id ORDER BY codigo";
 		foreach($db->query($sql) as $res) {
 			$equipo[] = $res;
 		}
 		if(empty($equipo)) {
-			return "No hay Datos";
+			return false;
 		}
 		else {
 			return $equipo;
@@ -25,14 +18,6 @@ class Equipo {
 		$db->close();
     }
     
-    public function recuperarNumeroFilas() {
-		$conexion = new Conexion();
-		$db = $conexion->conectar();
-		$sql = "SELECT count(*) as cantidad from equipos";
-        $resultado = $db->query($sql);
-        $datos = mysqli_fetch_assoc($resultado);
-		return $datos['cantidad'];
-	}
 
 	public function recuperarImagen($id) {
 		$conexion = new Conexion();

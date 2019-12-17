@@ -1,46 +1,190 @@
 <?php 
-session_start(); 
+session_start();
+require_once("../../Controladores/Control_Inventario.php");
+$control = new Control_Inventario();
+$datos = $control-> obtenerListaEquipos();
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="../../assets/css/inventario.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="../../assets/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../../assets/css/indexcss.css">
+	<link rel="stylesheet" href="../../assets/css/adicional.css">
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/dataTables.bootstrap4.min.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/buttons/1.3.1/css/buttons.bootstrap4.min.css"/>
 </head>
 <body>
+<div class="main-container">
+		<!-- CABECERA -->
+		<header id="header">
+			<div id="logo">
+				<img src="../../assets/img/SicUTP.png" alt="Logo Investigacion Utp" />
+				<a href="index.php">Sistema de Control de Inventario </a>
+			</div>
+			<nav id="menu">
+				<ul>
+					<li>
+						<a href="../../index.php">Home</a>
+					</li>
+					<li>
+						<a href="../../Vistas/Equipos/location.php">Inventario</a>
+					</li>
+					<li>
+						<?php if (!isset($_SESSION['usuario'])){ ?>
+						<a data-toggle="modal" data-target="#modal1" href="#modal1">Iniciar Sesion</a>
+						<?php } else{ ?>
+							<a data-toggle="modal" data-target="#modal2" href="#modal2">Cerrar Sesion</a>
+						<?php } ?>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+
 	<section class="principal">
-		<center>
-			<h1>SISTEMA DE INVENTARIO</h1>
-		</center>
-		<br>
-		<br>
-		<div class="manageMember">
+	<p class="h1">Equipos</p>
+
 			<?php if(isset($_SESSION['usuario'])){ ?>
 			<a href="Agregar_Equipo.php">
 				<button type="button">Registrar Nuevo Equipo</button>
 			</a>
 			<?php } ?>
-			<br>
-			<br>
-			<label for="caja_busqueda">Buscar</label>
-			<input type="text" name="caja_busqueda" id="caja_busqueda"></input>
-			<label for="filas">Numero de Filas: </label>
-			<select name="eleccion" id="eleccion">
-				<option selected hidden>
-					<?php echo $_SESSION['cantidad']?>
-				</option>
-				<option>5</option>
-				<option>10</option>
-				<option>15</option>
-				<option>20</option>
-				<option>25</option>
-			</select>
-			<br>
-			<br>
-			<br>
-			<div id="datos"></div>
-		</div>
+
+			<div class="container">
+                    <div class="table">        
+                        <table id="tabla" cellspacing="0" class="table table-hover">
+		<thead class="thead-dark">
+		<div class="row">
+			<tr>
+				<th style="width: 5%">
+					Codigo
+				</th>
+				<th style="width: 10%">
+					Categoria
+				</th>
+				<th style="width: 10%">
+					Nombre
+				</th>
+				<th style="width: 10%">
+					Disponibilidad
+				</th>
+				<th style="width: 10%">
+					Cantidad
+				</th>
+				<th style="width: 10%">
+					Encargado
+				</th>
+				<th style="width: 10%">
+					Sede
+				</th>
+				<th style="width: 20%">
+					Facultad
+				</th>
+			</tr>
+			</div>
+		</thead>
+		<tbody>
+			<?php for ($i=0 ; $i < count($datos); $i++) { ?>
+				<div class="row">
+			<tr>
+				<td>
+					<?php echo $datos[$i]['codigo']; ?>
+				</td>
+				<td>
+					<?php echo $datos[$i]['categoria']; ?>
+				</td>
+				<td>
+					<?php echo $datos[$i]['nombre']; ?>
+				</td>
+				<td>
+					<?php echo $datos[$i]['disponibilidad']; ?>
+				</td>
+				<td>
+					<?php echo $datos[$i]['cantidad']; ?>
+				</td>
+				<td>
+					<?php echo $datos[$i]['encargado']; ?>
+				</td>
+				<td>
+					<?php echo $datos[$i]['sede']; ?>
+				</td>
+				<td>
+					<?php echo $datos[$i]['facultad']; ?>
+				</td>
+			</tr>
+			</div>
+			<?php } ?>
+			</tbody>        
+                       </table>                  
+                    </div>
+                </div>
+
+		  
 	</section>
-	<script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
+	<!-- Modal -->
+<div class="modal " id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+		<h5 class="modal-title" id="exampleModalLongTitle">Iniciar Sesión</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+	  </div>
+      <div class="modal-body">
+  			<div class="form-group">
+    			<label for="exampleInputEmail1">Cuenta de Usuario</label>
+    			<input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+  			</div>
+  			<div class="form-group">
+    			<label for="exampleInputPassword1">Contraseña</label>
+				<input type="password"  name="password" class="form-control" id="exampleInputPassword1" required>
+				<small id="warning" class="form-text text-muted"><div style="color:#FF0000;" id = "respuesta"></div></small>
+			  </div>
+      </div>
+      <div class="modal-footer">
+		<button type="button" id="login" class="btn btn-primary" name="submit">Iniciar Sesion</button>
+		<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button><br>
+	  </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Cerrar Sesión</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	  <p>¿Deseas Cerrar Sesion?</p>
+      </div>
+      <div class="modal-footer">
+	  <a href="../../Vistas/usuarios/cerrarS.php">
+		<button type="button" class="btn btn-primary">Cerrar Sesión</button>
+		</a>
+		<button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
+      </div>
+    </div>
+  </div>
+</div>
+	<footer id="footer">
+				<p>Desarrollado por el grupo 4 ISF131 &copy;
+					<?=date( 'Y') ?>
+				</p>
+		</footer> 
+</div>
+</body>
+	<script type="text/javascript" src="../../assets/js/jquery/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="../../assets/js/inventario.js"></script>
+	<script type="text/javascript" src="../../assets/Bootstrap/js/bootstrap.min.js"></script>
+	<script src="../../assets/js/popper/popper.min.js"></script>
+	<script type="text/javascript" src="../../assets/Datatables/datatables.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/inicio.js"></script>
 </body>
 </html>
