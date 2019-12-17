@@ -21,6 +21,10 @@
 
 }
 
+.dataTables_paginate{
+    padding-top: 1vh;
+}
+
 .page-item.active .page-link {
     color: #fff !important;
     background-color: #000 !important;
@@ -35,6 +39,7 @@
 
 .h1{
     text-align: center;
+    padding-bottom: 2vh;
 }
 
 .page-link:hover {

@@ -53,17 +53,10 @@ $(document).on('click','#tabla tr', function(){
 $(document).ready(function () {   
     $('#tabla').DataTable({
 		"scrollX": false,
-		"buttons": [
-            {
-                text: 'My button',
-                action: function ( e, dt, node, config ) {
-                    alert( 'Button activated' );
-                }
-            }
-        ],
-		"dom":"<'row'<'col-sm-6'l><'col-sm-6'f>>" +
+		"pagingType": "full_numbers",
+		"dom":"<'row'<'col-sm-4'l><'col-sm-3'f><'col-sm-6'>>" +
 		"<'row'<'col-sm-12'tr>>" +
-		"<'row'<'col-sm-6'i><'col-sm-6 text-center'p>>",
+		"<'row'<'col-sm-6'i><'col-sm-6'p>>",
         "language": {
                 "lengthMenu": "Numero de Filas:  _MENU_",
                 "zeroRecords": "No se encontraron resultados",

@@ -9,8 +9,8 @@ session_start();
 	<link href="../../assets/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="../../assets/css/indexcss.css">
 	<link rel="stylesheet" href="../../assets/css/adicional.css">
-	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/dataTables.bootstrap4.min.css"/>
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/buttons/1.3.1/css/buttons.bootstrap4.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../../assets/Datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+
 </head>
 <body>
 	<div id="main-container">

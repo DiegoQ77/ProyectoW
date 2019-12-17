@@ -12,8 +12,7 @@ $datos = $control-> obtenerListaEquipos();
 	<link href="../../assets/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="../../assets/css/indexcss.css">
 	<link rel="stylesheet" href="../../assets/css/adicional.css">
-	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/dataTables.bootstrap4.min.css"/>
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/buttons/1.3.1/css/buttons.bootstrap4.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../../assets/Datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
 </head>
 <body>
 <div class="main-container">
@@ -45,13 +44,6 @@ $datos = $control-> obtenerListaEquipos();
 
 	<section class="principal">
 	<p class="h1">Equipos</p>
-
-			<?php if(isset($_SESSION['usuario'])){ ?>
-			<a href="Agregar_Equipo.php">
-				<button type="button">Registrar Nuevo Equipo</button>
-			</a>
-			<?php } ?>
-
 			<div class="container">
                     <div class="table">        
                         <table id="tabla" cellspacing="0" class="table table-hover">
@@ -186,5 +178,6 @@ $datos = $control-> obtenerListaEquipos();
 	<script src="../../assets/js/popper/popper.min.js"></script>
 	<script type="text/javascript" src="../../assets/Datatables/datatables.min.js"></script>
 	<script type="text/javascript" src="../../assets/js/inicio.js"></script>
+	
 </body>
 </html>
