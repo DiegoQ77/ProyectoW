@@ -37,8 +37,7 @@ Saludos"
 if(!$mail->send()){
     echo $mail->ErrorInfo;
 }
-else{?>
-    <h1>Mensaje Enviado</h1>
-    <a href='../../Vistas/Equipos/location.php'><button type='button'>Volver al Inventario</button></a><?php
+else{
+    header("Location:Inventario.php");
 }
 ?>

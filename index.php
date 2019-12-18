@@ -23,7 +23,7 @@ session_start();
 			<nav id="menu">
 				<ul>
 					<li>
-						<a href="../../index.php">Home</a>
+						<a href="../../index.php">Inicio</a>
 					</li>
 					<li>
 						<a href="../../Vistas/Equipos/location.php">Inventario</a>
@@ -65,7 +65,7 @@ session_start();
 </div>
 						</div>
 
-		<section>
+						</section>
 
 <!-- Modal -->
 <div class="modal " id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -89,8 +89,8 @@ session_start();
 			  </div>
       </div>
       <div class="modal-footer">
-		<button type="button" id="login" class="btn btn-primary" name="submit">Iniciar Sesion</button>
-		<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button><br>
+		<button type="button" id="login" class="btn btn-light" name="submit">Iniciar Sesion</button>
+		<button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button><br>
 	  </div>
     </div>
   </div>
@@ -110,9 +110,9 @@ session_start();
       </div>
       <div class="modal-footer">
 	  <a href="../../Vistas/usuarios/cerrarS.php">
-		<button type="button" class="btn btn-primary">Cerrar Sesión</button>
+		<button type="button" class="btn btn-light">Cerrar Sesión</button>
 		</a>
-		<button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
+		<button type="button" class="btn btn-light" data-dismiss="modal">Regresar</button>
       </div>
     </div>
   </div>

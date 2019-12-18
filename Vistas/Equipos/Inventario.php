@@ -20,12 +20,12 @@ $datos = $control-> obtenerListaEquipos();
 		<header id="header">
 			<div id="logo">
 				<img src="../../assets/img/SicUTP.png" alt="Logo Investigacion Utp" />
-				<a href="index.php">Sistema de Control de Inventario </a>
+				<a href="../../index.php">Sistema de Control de Inventario <br><center> Equipos</center></a>
 			</div>
 			<nav id="menu">
 				<ul>
 					<li>
-						<a href="../../index.php">Home</a>
+						<a href="../../index.php">Inicio</a>
 					</li>
 					<li>
 						<a href="../../Vistas/Equipos/location.php">Inventario</a>
@@ -41,16 +41,21 @@ $datos = $control-> obtenerListaEquipos();
 			</nav>
 		</header>
 
-
+<div class= "listado">
 	<section class="principal">
-	<p class="h1">Equipos</p>
-			<div class="container">
-                    <div class="table">        
+			<div class="container" style=" max-width: 1800px;">
+                    <div class="table">   
+					<?php if (isset($_SESSION['usuario'])){ ?>
+					<a href="Agregar_Equipo.php">
+					<button type="button" style = "float:right;" class="btn btn-light">Agregar Nuevo Equipo</button>  
+						</a>   
+						<?php } if(is_array($datos)){?>
+						
                         <table id="tabla" cellspacing="0" class="table table-hover">
 		<thead class="thead-dark">
 		<div class="row">
 			<tr>
-				<th style="width: 5%">
+				<th style="width:10%">
 					Codigo
 				</th>
 				<th style="width: 10%">
@@ -74,6 +79,10 @@ $datos = $control-> obtenerListaEquipos();
 				<th style="width: 20%">
 					Facultad
 				</th>
+				<th style="width: 1%"></th>
+				<?php if (isset($_SESSION['usuario'])){ ?>
+				<th style="width: 5%">Acciones</th>
+				<?php } ?>
 			</tr>
 			</div>
 		</thead>
@@ -105,16 +114,29 @@ $datos = $control-> obtenerListaEquipos();
 				<td>
 					<?php echo $datos[$i]['facultad']; ?>
 				</td>
+				<?php echo "
+				<td >
+					<a class=ver href='Ver_Equipo.php?id=".$datos[$i]['codigo']."'></a>
+				</td> ";
+				if (isset($_SESSION['usuario'])){ echo 
+				"<td>
+				<a style =padding-right:5px; href='Editar_Equipo.php?id=".$datos[$i]["codigo"]."'><img src=../../assets/img/lapiz.png width=20 height=20 /></a>
+				<a style =padding-left:5px; data-toggle=modal  data-target=#modal5 href=#modal5><img src=../../assets/img/bote.png width=20 height=20 />
+				</a>
+							</td>";
+				}?>
 			</tr>
 			</div>
 			<?php } ?>
 			</tbody>        
-                       </table>                  
+					   </table>   
+			<?php } ?>               
                     </div>
                 </div>
 
 		  
 	</section>
+			</div>
 	<!-- Modal -->
 <div class="modal " id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -137,8 +159,8 @@ $datos = $control-> obtenerListaEquipos();
 			  </div>
       </div>
       <div class="modal-footer">
-		<button type="button" id="login" class="btn btn-primary" name="submit">Iniciar Sesion</button>
-		<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button><br>
+		<button type="button" id="login" class="btn btn-light" name="submit">Iniciar Sesion</button>
+		<button type="button"class="btn btn-light" data-dismiss="modal">Cerrar</button><br>
 	  </div>
     </div>
   </div>
@@ -158,9 +180,33 @@ $datos = $control-> obtenerListaEquipos();
       </div>
       <div class="modal-footer">
 	  <a href="../../Vistas/usuarios/cerrarS.php">
-		<button type="button" class="btn btn-primary">Cerrar Sesión</button>
+		<button type="button" class="btn btn-light">Cerrar Sesión</button>
 		</a>
-		<button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
+		<button type="button" class="btn btn-light" data-dismiss="modal">Regresar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Eliminar Equipo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	  <p>¿Deseas Eliminar este equipo? Esta acción no se puede deshacer!</p>
+      </div>
+      <div class="modal-footer">
+		  <?php echo "
+		  <a href='Eliminado.php?id=".$datos[$i]["codigo"]."'>
+		<button type=button class=btn btn-light>Eliminar</button>
+		</a>"; 
+		?>
+		<button type="button" class="btn btn-light" data-dismiss="modal">Regresar</button>
       </div>
     </div>
   </div>
@@ -178,6 +224,7 @@ $datos = $control-> obtenerListaEquipos();
 	<script src="../../assets/js/popper/popper.min.js"></script>
 	<script type="text/javascript" src="../../assets/DataTables/datatables.min.js"></script>
 	<script type="text/javascript" src="../../assets/js/inicio.js"></script>
+	<script type="text/javascript" src="../../assets/Datatables/DataTables-1.10.18/js/dataTables.responsive.min.js">
 	
 </body>
 </html>

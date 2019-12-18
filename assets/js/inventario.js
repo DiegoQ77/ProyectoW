@@ -1,51 +1,8 @@
 
-function cambiar_lista(cantidad){
-	$.ajax({
-		url: 'Buscar.php' ,
-		type: 'POST' ,
-		dataType: 'html',
-		data: {cantidad: cantidad},
-	})
-	.done(function(respuesta){
-		$("#datos").html(respuesta);
-	})
-	.fail(function(){
-		console.log("error");
-	});
-}
-
-function cambiar_pagina(pagina){
-	$.ajax({
-		url: 'Buscar.php' ,
-		type: 'POST' ,
-		dataType: 'html',
-		data: {pagina: pagina},
-	})
-	.done(function(respuesta){
-		$("#datos").html(respuesta);
-	})
-	.fail(function(){
-		console.log("error");
-	});
-}
-
-
-$(document).on('change','#eleccion', function(){
-	var valor = $(this).val();
-	cambiar_lista(valor);
-	$("#caja_busqueda").val('');
-});
-
-
-$(document).on('click','#pag', function(){
-	var valor = $(this).val();
-	cambiar_pagina(valor);
-	$("#caja_busqueda").val('');
-});
-
+var x = document.getElementsByClassName("ver");
 $(document).on('click','#tabla tr', function(){
-    var href = $(this).find("a").attr("href");
-    if(href) {
+    var href = $(this).find(x).attr("href");
+    if(href && !$('#modal5').is(':visible')) {
         window.location = href;
     }
 });
@@ -53,8 +10,11 @@ $(document).on('click','#tabla tr', function(){
 $(document).ready(function () {   
     $('#tabla').DataTable({
 		"scrollX": false,
+		"columnDefs": [
+			{ "orderable": false, "targets": 8 }
+		  ],
 		"pagingType": "full_numbers",
-		"dom":"<'row'<'col-sm-4'l><'col-sm-3'f><'col-sm-6'>>" +
+		"dom":"<'row'<'col-sm-2'f><'col-sm'l><'col-sm-12'>>" +
 		"<'row'<'col-sm-12'tr>>" +
 		"<'row'<'col-sm-6'i><'col-sm-6'p>>",
         "language": {

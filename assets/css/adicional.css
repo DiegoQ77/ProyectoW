@@ -7,13 +7,10 @@
     text-align: center;
 }
 
-.container{
-        max-width: 1800px;
+.table tr{
+    cursor: pointer;
 }
 
-.container{
-    width: 100%;
-}
 
 .dataTables_paginate a {
     padding: 8px 16px;
@@ -31,18 +28,17 @@
     border-color: #000 !important; 
 }
 
-.page-link {
+.page-link, .btn-light {
     color: #000 !important;
     background-color: #fff !important;
     border: 1px solid #dee2e6 !important; 
 }
 
 .h1{
-    text-align: center;
     padding-bottom: 2vh;
 }
 
-.page-link:hover {
+.page-link:hover , .btn-light:hover{
     color: #fff !important;
     background-color: #000 !important;
     border-color: #000 !important; 
@@ -52,7 +48,24 @@
     float: right;
   }
 
+  .listado{
+      margin-top: 5vh;
+  }
 
 
 
+label{
+    font-weight: bold;
+}
 
+.imagen{
+    float: right;
+    padding-top:5.5vh;
+    padding-right: 1.5vw;
+}
+
+
+
+.ver{
+    font-size: 22px;
+}

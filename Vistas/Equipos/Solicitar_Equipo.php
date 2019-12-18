@@ -3,126 +3,186 @@ require_once("../../Controladores/Control_Inventario.php");
 $control = new Control_Inventario();
 $data = $control->recuperarEquipo();
 ?>
-
-<!DOCTYPE html>
-<html>
-
+<!DOCTYPE HTML>
+<html lang="es">
 <head>
-	<link rel="stylesheet" href="../../assets/css/popcss.css">
-	<title>Solicitar Equipo</title>
-	<style type="text/css">
-	fieldset {
-		margin: auto;
-		margin-top: 100px;
-		width: 50%;
-	}
-	table tr th {
-		padding-top: 20px;
-		padding-bottom: 20px;
-	}
-	table td {
-		padding-top: 20px;
-		padding-bottom: 20px;
-	}
-	textarea {
-		width: 300px;
-		height: 100px;
-	}
-	img {
-		float: right;
-		font-weight: bold;
-	}
-	</style>
+	<meta charset="utf-8" />
+	<title>Inventario</title>
+	<link href="../../assets/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../../assets/css/indexcss.css">
+	<link rel="stylesheet" href="../../assets/css/adicional.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/Datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+	
+
 </head>
-
 <body>
-	<fieldset>
-		<legend>
-			<h1>Solicitar</h1>
-		</legend>
-		<form id="form1" action="Enviado.php" method="post" >
-			<table cellspacing="0" cellpadding="0">
-				<img src="Imagenes.php?id=<?php echo $data['codigo'];?>" width="400" height="400" />
-				<br>
-				<br>
-				<tr>
-					<th>Nombre Completo: </th>
-					<td>
-						<input type="text" name="completo" required/>
-					</td>
-				</tr>
-				<tr>
-					<th>Cedula: </th>
-					<td>
-						<input type="text" name="cedula" required/>
-					</td>
-				</tr>
-				<tr>
-					<th>Telefono: </th>
-					<td>
-						<input type="text" name="telefono" required/>
-					</td>
-				</tr>
-				<tr>
-					<th>Ocupacion: </th>
-					<td>
-						<input type="text" name="ocupacion" required/>
-					</td>
-				</tr>
-				<tr>
-					<th>Correo: </th>
-					<td>
-						<input type="email" name="correo" required/>
-					</td>
-				</tr>
-				<tr>
-					<th>Cantidad a Solicitar: </th>
-					<td>
-						<input type="number" name="pedido" min="1" required/>
-					</td>
-				</tr>
-				<tr>
-					<th>Motivo de solicitud: </th>
-					<td>
-						<textarea name="motivo" required></textarea>
-				</tr>
-
-			</table>
-			<input type="hidden" name="nombre" value="<?php echo $data['nombre'];?>"/>
+<div id="main-container">
+		<!-- CABECERA -->
+		<header id="header">
+			<div id="logo">
+				<img src="../../assets/img/SicUTP.png" alt="Logo Investigacion Utp" />
+				<a href="../../index.php">Sistema de Control de Inventario <br><center> Enviar Solicitud</center></a>
+			</div>
+			<nav id="menu">
+				<ul>
+					<li>
+						<a href="../../index.php">Inicio</a>
+					</li>
+					<li>
+						<a href="../../Vistas/Equipos/location.php">Inventario</a>
+					</li>
+					<li>
+						<?php if (!isset($_SESSION['usuario'])){ ?>
+						<a data-toggle="modal" data-target="#modal1" href="#modal1">Iniciar Sesion</a>
+						<?php } else{ ?>
+							<a data-toggle="modal" data-target="#modal2" href="#modal2">Cerrar Sesion</a>
+						<?php } ?>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<div class= "container-fluid">
+			<form id="form1" action="Enviado.php" method="post" >
+				<div class= "container" style=" max-width: 1200px; padding-top:2vh;">
+    				<div class="form-group">
+      				<label for="nombre">Nombre Completo:</label>
+      				<input type="text" name="completo" class="form-control" required>
+				</div>
+				<div class="form-group">
+      				<label for="cedula">Cedula:</label>
+      				<input type="text" name="cedula" class="form-control" required>
+				</div>
+				<div class="form-group">
+      				<label for="telefono">Teléfono:</label>
+      				<input type="text" name="telefono" class="form-control" required>
+				</div>
+				<div class="form-group">
+      				<label for="ocupacion">Ocupación:</label>
+      				<input type="text" name="ocupacion" class="form-control" required>
+				</div>
+				<div class="form-group">
+      				<label for="correo">Correo Institucional:</label>
+      				<input type="email" name="correo" class="form-control" required>
+				</div>
+				<div class="form-group">
+      				<label for="pedido">Cantidad a Solicitar:</label>
+      				<input type="number" name="pedido" class="form-control" required>
+				</div>
+				<div class="form-group">
+   				 <label for="motivo">Motivo de Solicitud:</label>
+   				 <textarea class="form-control"name="motivo" rows="2"  required ></textarea>
+  			</div>
+			  <input type="hidden" name="nombre" value="<?php echo $data['nombre'];?>"/>
 			<input type="hidden" name="id" value="<?php echo $data['codigo'];?>"/>
 			<input type="hidden" name="email" value="<?php echo $data['email'];?>"/>
-			<center>
-				<button type="button" id="validar1">Enviar</button>
-				<button type="button" style="display:none;" id="popup1" onclick="document.getElementById('id05').style.display='block'"></button>
-				<a href="Ver_Equipo.php?id=<?php echo $data['codigo']?>">
-					<button type="button">Regresar</button>
-				</a>
-			</center>
-			<div id="id05" class="modal">
 
-				<div class="modal-content animate">
-					<div class="imgcontainer">
-						<span onclick="document.getElementById('id05').style.display='none'" class="close" title="Close Modal">&times;</span>
-					</div>
-					<center>
-						<h1>Deseas enviar este mensaje?</h1>
-						<button type="submit" name="submit">Si</button>
-						<button type="button" onclick="document.getElementById('id05').style.display='none'">Regresar</button>
-					</center>
-		</form>
-				</div>
-		</div>
-	</fieldset>
-	<script>
-	var modal5 = document.getElementById('id05');
-	window.onclick = function(event) {
-		if(event.target == modal5) {
-			modal5.style.display = "none";
-		}
-	}
-	</script>
-	<script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
+			<center>
+				<button class="btn btn-light" id="validar1" data-toggle="modal" data-target="#modal4" type="button">Enviar Mensaje</button>
+				<a href="Ver_Equipo.php?id=<?php echo $data['codigo']; ?>">
+					<button class="btn btn-light" type="button">Regresar</button>
+					</a>
+			</center>
+			</div>
+			<div class="modal" id="modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Editar Equipo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	  <p>¿Deseas Confirmar estos cambios?</p>
+      </div>
+      <div class="modal-footer">
+	  <a href="../../Vistas/usuarios/Actualizado.php">
+		<button type="submit" class="btn btn-light">Si</button>
+		</a>
+		<button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+</div>
+
+
+
+	<div class="modal " id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+		<h5 class="modal-title" id="exampleModalLongTitle">Iniciar Sesión</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+	  </div>
+      <div class="modal-body">
+  			<div class="form-group">
+    			<label for="exampleInputEmail1">Cuenta de Usuario</label>
+    			<input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+  			</div>
+  			<div class="form-group">
+    			<label for="exampleInputPassword1">Contraseña</label>
+				<input type="password"  name="password" class="form-control" id="exampleInputPassword1" required>
+				<small id="warning" class="form-text text-muted"><div style="color:#FF0000;" id = "respuesta"></div></small>
+			  </div>
+      </div>
+      <div class="modal-footer">
+		<button type="button" id="login" class="btn btn-light" name="submit">Iniciar Sesion</button>
+		<button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button><br>
+	  </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Cerrar Sesión</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	  <p>¿Deseas Cerrar Sesion?</p>
+      </div>
+      <div class="modal-footer">
+	  <a href="../../Vistas/usuarios/cerrarS.php">
+		<button type="button" class="btn btn-light">Cerrar Sesión</button>
+		</a>
+		<button type="button" class="btn btn-light" data-dismiss="modal">Regresar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+		<!-- PIE DE PAGINA -->
+		<footer id="footer">
+				<p>Desarrollado por el grupo 4 ISF131 &copy;
+					<?=date( 'Y') ?>
+				</p>
+		</footer>
+	</div>
+	<script type="text/javascript" src="../../assets/js/jquery/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/inventario.js"></script>
 	<script type="text/javascript" src="../../assets/js/formularios.js"></script>
+	<script type="text/javascript" src="../../assets/Bootstrap/js/bootstrap.min.js"></script>
+	<script src="../../assets/js/popper/popper.min.js"></script>
+	<script type="text/javascript" src="../../assets/DataTables/datatables.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/inicio.js"></script>
+	<script type="text/javascript" src="../../assets/Datatables/DataTables-1.10.18/js/dataTables.responsive.min.js"></script>					
 </body>
 
 </html>
+
+
+
+
+		
+		
+
+

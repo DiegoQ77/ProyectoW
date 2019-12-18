@@ -58,7 +58,7 @@ a:hover{
     color:  #003d72;
     font-weight: bold;
     text-decoration: none;
-    margin-top: 65px;
+    margin-top: 45px;
     margin-left: 20px;
     margin-right: 10px;
     text-shadow: 2px 3px 6px #222222;
@@ -133,7 +133,7 @@ a:hover{
 
 
 
-img{
+.carousel-item img{
     height:70vh;
     width:60vw;
 }
