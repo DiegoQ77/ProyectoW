@@ -175,6 +175,7 @@ $facultades = $control->obtenerListaFacultades();
 				</div>
 			</div>
 		</div>
+		<div class="espacio"></div>
 		<!-- PIE DE PAGINA -->
 		<footer id="footer">
 			<p>Desarrollado por el grupo 4 ISF131 &copy;
