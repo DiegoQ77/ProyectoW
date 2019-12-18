@@ -47,9 +47,9 @@ $facultades = $control->obtenerListaFacultades();
 				</ul>
 			</nav>
 		</header>
-		<div class="container-fluid">
+		<div class="container-responsive">
 			<div class="imagen">
-				<img class="equipo" src="Imagenes.php?id=<?php echo $data['codigo'];?>" width="400" height="400" />
+				<img class="equipo" src="Imagenes.php?id=<?php echo $data['codigo'];?>" width="300" height="300" />
 				<br>
 				<br>
 				<label for="cambiar">Cambiar Imagen:</label>
@@ -58,23 +58,23 @@ $facultades = $control->obtenerListaFacultades();
 				<p id="mensaje"></p>
 			</div>
 			<form action="Actualizado.php" method="post" id="form" enctype="multipart/form-data">
-				<div class="container" style="float: left; padding-left:5vw; max-width: 1200px; padding-top:2.5vh;">
+				<div class="container" style="float: left; padding-left:5vw; max-width: 900px;">
 					<div class="form-group">
 						<label for="categoria">Categoria:</label>
-						<input type="text" value="<?php echo $data['categoria'];?>" name="categoria" class="form-control" required>
+						<input type="text" value="<?php echo $data['categoria'];?>" name="categoria" class="form-control form-control-sm" required>
 					</div>
 					<div class="form-group">
 						<label for="nombre">Nombre:</label>
-						<input type="text" name="nombre" value="<?php echo $data['nombre'];?>" class="form-control" required>
+						<input type="text" name="nombre" value="<?php echo $data['nombre'];?>" class="form-control form-control-sm" required>
 					</div>
 					<div class="form-group">
 						<label for="descripcion">Descripcion del Equipo:</label>
-						<textarea class="form-control" name="descripcion" rows="2" required><?php echo $data['descripcion'];?></textarea>
+						<textarea class="form-control form-control-sm" name="descripcion" rows="2" required><?php echo $data['descripcion'];?></textarea>
 					</div>
 					<div class=" form-row">
 						<div class="form-group col-md-6">
 							<label for="sede">Sede:</label>
-							<select name="sede" class="form-control" required>
+							<select name="sede" class="form-control form-control-sm" required>
 								<option selected hidden>
 									<?php echo $data['sede'];?>
 								</option>
@@ -87,7 +87,7 @@ $facultades = $control->obtenerListaFacultades();
 						</div>
 						<div class="form-group col-md-6">
 							<label for="facultad">Facultad:</label>
-							<select name="facultad" class="form-control" required>
+							<select name="facultad" class="form-control form-control-sm" required>
 								<option selected hidden>
 									<?php echo $data['facultad'];?>
 								</option>
@@ -101,7 +101,7 @@ $facultades = $control->obtenerListaFacultades();
 					</div>
 					<div class="form-group">
 						<label for="encargado">Encargado</label>
-						<select name="encargado" class="form-control" required>
+						<select name="encargado" class="form-control form-control-sm" required>
 							<option selected hidden>
 								<?php echo $data['encargado'];?>
 							</option>
@@ -115,7 +115,7 @@ $facultades = $control->obtenerListaFacultades();
 					<div class=" form-row">
 						<div class="form-group col-md-6">
 							<label for="disponibilidad">Disponibilidad</label>
-							<select class="form-control" name="disponibilidad" required>
+							<select class="form-control form-control-sm" name="disponibilidad" required>
 								<option selected hidden>
 									<?php echo $data['disponibilidad'];?>
 								</option>
@@ -125,7 +125,7 @@ $facultades = $control->obtenerListaFacultades();
 						</div>
 						<div class="form-group col-md-6">
 							<label for="exampleFormControlTextarea1">Cantidad:</label>
-							<input type="number" value="<?php echo $data['cantidad'];?>" class="form-control" name="cantidad" min="0" required>
+							<input type="number" value="<?php echo $data['cantidad'];?>" class="form-control form-control-sm" name="cantidad" min="0" required>
 						</div>
 					</div>
 					<input type="hidden" name="id" value="<?php echo $data['codigo']?>" />
@@ -177,11 +177,11 @@ $facultades = $control->obtenerListaFacultades();
 					<div class="modal-body">
 						<div class="form-group">
 							<label for="exampleInputEmail1">Cuenta de Usuario</label>
-							<input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+							<input type="text" name="username" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Contraseña</label>
-							<input type="password" name="password" class="form-control" id="exampleInputPassword1" required>
+							<input type="password" name="password" class="form-control form-control-sm" id="exampleInputPassword1" required>
 							<small id="warning" class="form-text text-muted"><div style="color:#FF0000;" id = "respuesta"></div></small>
 						</div>
 					</div>

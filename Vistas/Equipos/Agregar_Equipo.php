@@ -48,22 +48,22 @@ $facultades = $control->obtenerListaFacultades();
 		</header>
 		<div class="container ">
 			<form action="Creado.php" method="post" enctype="multipart/form-data">
-				<div class="form-group">
+				<div class=" ">
 					<label for="categoria">Categoria:</label>
-					<input type="text" name="categoria" class="form-control" required>
+					<input type="text" name="categoria" class="form-control form-control-sm" required>
 				</div>
-				<div class="form-group">
+				<div class=" ">
 					<label for="nombre">Nombre:</label>
-					<input type="text" name="nombre" class="form-control" required>
+					<input type="text" name="nombre" class="form-control form-control-sm" required>
 				</div>
-				<div class="form-group">
+				<div class=" ">
 					<label for="descripcion">Descripcion del Equipo:</label>
-					<textarea class="form-control" name="descripcion" rows="2" required></textarea>
+					<textarea class="form-control form-control-sm" name="descripcion" rows="2" required></textarea>
 				</div>
 				<div class=" form-row">
-					<div class="form-group col-md-6">
+					<div class="  col-md-6">
 						<label for="sede">Sede:</label>
-						<select name="sede" class="form-control" required>
+						<select name="sede" class="form-control form-control-sm" required>
 							<option selected hidden></option>
 							<?php if(is_array($sedes)){ for ($i=0 ; $i < count($sedes); $i++) { ?>
 							<option value="<?php echo $sedes[$i]['id']?>">
@@ -72,9 +72,9 @@ $facultades = $control->obtenerListaFacultades();
 							<?php } } else{ echo "NO HAY DATOS"; } ?>
 						</select>
 					</div>
-					<div class="form-group col-md-6">
+					<div class="  col-md-6">
 						<label for="facultad">Facultad:</label>
-						<select name="facultad" class="form-control" required>
+						<select name="facultad" class="form-control form-control-sm" required>
 							<option selected hidden></option>
 							<?php if(is_array($facultades)){ for ($i=0 ; $i < count($facultades); $i++) { ?>
 							<option value="<?php echo $facultades[$i]['id']?>">
@@ -84,9 +84,9 @@ $facultades = $control->obtenerListaFacultades();
 						</select>
 					</div>
 				</div>
-				<div class="form-group">
+				<div class=" ">
 					<label for="encargado">Encargado</label>
-					<select name="encargado" class="form-control" required>
+					<select name="encargado" class="form-control form-control-sm" required>
 						<option selected hidden></option>
 						<?php if(is_array($personas)){ for ($i=0 ; $i < count($personas); $i++) { ?>
 						<option value="<?php echo $personas[$i]['id']?>">
@@ -96,22 +96,22 @@ $facultades = $control->obtenerListaFacultades();
 					</select>
 				</div>
 				<div class=" form-row">
-					<div class="form-group col-md-6">
+					<div class="  col-md-6">
 						<label for="disponibilidad">Disponibilidad</label>
-						<select class="form-control" name="disponibilidad" required>
+						<select class="form-control form-control-sm" name="disponibilidad" required>
 							<option selected hidden></option>
 							<option>Disponible</option>
 							<option>No Disponible</option>
 						</select>
 					</div>
-					<div class="form-group col-md-6">
+					<div class="  col-md-6">
 						<label for="exampleFormControlTextarea1">Cantidad:</label>
-						<input type="number" class="form-control" name="cantidad" min="0" required>
+						<input type="number" class="form-control form-control-sm" name="cantidad" min="0" required>
 					</div>
 				</div>
-				<div class="form-group">
+				<div class=" ">
 					<label for="exampleFormControlFile1">Subir Imagen: </label>
-					<input type="file" name="imagen" id="file" accept="image/*" class="form-control-file" required>
+					<input type="file" name="imagen" id="file" accept="image/*" class="form-control form-control-sm-file" required>
 					<p id="mensaje" style="color:#FF0000;"></p>
 				</div>
 				<center>
@@ -135,13 +135,13 @@ $facultades = $control->obtenerListaFacultades();
 						</button>
 					</div>
 					<div class="modal-body">
-						<div class="form-group">
+						<div class="form-group ">
 							<label for="exampleInputEmail1">Cuenta de Usuario</label>
-							<input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+							<input type="text" name="username" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required>
 						</div>
-						<div class="form-group">
+						<div class=" ">
 							<label for="exampleInputPassword1">Contraseña</label>
-							<input type="password" name="password" class="form-control" id="exampleInputPassword1" required>
+							<input type="password" name="password" class="form-control form-control-sm" id="exampleInputPassword1" required>
 							<small id="warning" class="form-text text-muted"><div style="color:#FF0000;" id = "respuesta"></div></small>
 						</div>
 					</div>

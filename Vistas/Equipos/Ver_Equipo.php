@@ -50,7 +50,7 @@ $facultades = $control->obtenerListaFacultades();
 		</header>
 		<div class="ver">
 			<div class="container" style="max-width: 1400px; padding-top: 5vh; padding-bottom:5vh">
-				<img class="equipo" style="float:right;" src="Imagenes.php?id=<?php echo $data['codigo'];?>" width="500" height="500" />
+				<img class="equipo" style="float:right;" src="Imagenes.php?id=<?php echo $data['codigo'];?>" width="350" height="350" />
 				<div class="form-group">
 					<div class="row">
 						<div class="col-sm">

@@ -48,31 +48,31 @@ $data = $control->recuperarEquipo();
 				<div class="container" style=" max-width: 1200px; padding-top:2vh;">
 					<div class="form-group">
 						<label for="nombre">Nombre Completo:</label>
-						<input type="text" name="completo" class="form-control" required>
+						<input type="text" name="completo" class="form-control form-control-sm" required>
 					</div>
 					<div class="form-group">
 						<label for="cedula">Cedula:</label>
-						<input type="text" name="cedula" class="form-control" required>
+						<input type="text" name="cedula" class="form-control form-control-sm" required>
 					</div>
 					<div class="form-group">
 						<label for="telefono">Teléfono:</label>
-						<input type="text" name="telefono" class="form-control" required>
+						<input type="text" name="telefono" class="form-control form-control-sm" required>
 					</div>
 					<div class="form-group">
 						<label for="ocupacion">Ocupación:</label>
-						<input type="text" name="ocupacion" class="form-control" required>
+						<input type="text" name="ocupacion" class="form-control form-control-sm" required>
 					</div>
 					<div class="form-group">
 						<label for="correo">Correo Institucional:</label>
-						<input type="email" name="correo" class="form-control" required>
+						<input type="email" name="correo" class="form-control form-control-sm" required>
 					</div>
 					<div class="form-group">
 						<label for="pedido">Cantidad a Solicitar:</label>
-						<input type="number" name="pedido" class="form-control" required>
+						<input type="number" name="pedido" class="form-control form-control-sm" required>
 					</div>
 					<div class="form-group">
 						<label for="motivo">Motivo de Solicitud:</label>
-						<textarea class="form-control" name="motivo" rows="2" required></textarea>
+						<textarea class="form-control form-control-sm" name="motivo" rows="2" required></textarea>
 					</div>
 					<input type="hidden" name="nombre" value="<?php echo $data['nombre'];?>" />
 					<input type="hidden" name="id" value="<?php echo $data['codigo'];?>" />
@@ -123,11 +123,11 @@ $data = $control->recuperarEquipo();
 					<div class="modal-body">
 						<div class="form-group">
 							<label for="exampleInputEmail1">Cuenta de Usuario</label>
-							<input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+							<input type="text" name="username" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Contraseña</label>
-							<input type="password" name="password" class="form-control" id="exampleInputPassword1" required>
+							<input type="password" name="password" class="form-control form-control-sm" id="exampleInputPassword1" required>
 							<small id="warning" class="form-text text-muted"><div style="color:#FF0000;" id = "respuesta"></div></small>
 						</div>
 					</div>
@@ -160,7 +160,6 @@ $data = $control->recuperarEquipo();
 					</div>
 				</div>
 			</div>
-		</div>
 
 
 		<!-- PIE DE PAGINA -->
