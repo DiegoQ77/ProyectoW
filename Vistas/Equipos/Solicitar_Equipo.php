@@ -43,9 +43,9 @@ $data = $control->recuperarEquipo();
 				</ul>
 			</nav>
 		</header>
-		<div class="container-fluid">
+		<div class="container">
 			<form id="form1" action="Enviado.php" method="post">
-				<div class="container" style=" max-width: 1200px; padding-top:2vh;">
+				<div class="container" style=" max-width: 1200px;">
 					<div class="form-group">
 						<label for="nombre">Nombre Completo:</label>
 						<input type="text" name="completo" class="form-control form-control-sm" required>
@@ -160,8 +160,8 @@ $data = $control->recuperarEquipo();
 					</div>
 				</div>
 			</div>
-
-
+		</div>
+		<div class="espacio"></div>
 		<!-- PIE DE PAGINA -->
 		<footer id="footer">
 			<p>Desarrollado por el grupo 4 ISF131 &copy;
@@ -169,6 +169,7 @@ $data = $control->recuperarEquipo();
 			</p>
 		</footer>
 	</div>
+
 	<script type="text/javascript" src="../../assets/js/jquery/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="../../assets/js/inventario.js"></script>
 	<script type="text/javascript" src="../../assets/js/formularios.js"></script>

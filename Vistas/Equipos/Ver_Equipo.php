@@ -263,7 +263,7 @@ $facultades = $control->obtenerListaFacultades();
 	<input type="hidden" name="id" value="<?php echo $data['codigo']?>" />
 	</form>
 
-
+	<div class="espacio"></div>
 	<!-- PIE DE PAGINA -->
 	<footer id="footer">
 		<p>Desarrollado por el grupo 4 ISF131 &copy;

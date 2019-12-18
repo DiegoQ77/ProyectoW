@@ -15,7 +15,7 @@ $(document).ready(function () {
 			{ "orderable": false, "targets": 8 }
 		  ],
 		"pagingType": "full_numbers",
-		"dom":"<'row'<'col-sm-2'f><'col-sm'l><'col-sm-12'>>" +
+		"dom":"<'row'<'col-sm-2'f><'col-sm-4'><'col-sm-2'l><'col-sm-4'>>" +
 		"<'row'<'col-sm-12'tr>>" +
 		"<'row'<'col-sm-6'i><'col-sm-6'p>>",
         "language": {

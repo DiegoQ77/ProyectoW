@@ -130,6 +130,7 @@
 	<script type="text/javascript" src="../../assets/Bootstrap/js/bootstrap.min.js"></script>
 	<script src="../../assets/js/popper/popper.min.js"></script>
 	<script type="text/javascript" src="../../assets/Datatables/datatables.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/inicio.js"></script>
 </body>
 
 </html>
