@@ -1,7 +1,18 @@
 <?php 
 require_once("../../Modelos/Conexion.php");
+/**
+ * Esta clase realiza diferentes consultas sobre la base
+ * de datos de equipos
+ */
 class Equipo {
 
+	/**
+	 * Esta función obtiene la información de los equipos 
+	 * de la base de datos y las devuelve al programa
+	 * principal
+	 *
+	 * @return array
+	 */
 	public function obtenerEquipos() {
 		$conexion = new Conexion();
         $db = $conexion->conectar();
@@ -18,7 +29,14 @@ class Equipo {
 		$db->close();
     }
     
-
+	/**
+	 * Esta función obtiene la imagen de un determinado
+	 * equipo de la Base de Datos y la devuelve al 
+	 * programa principal
+	 *
+	 * @param [int] $id
+	 * @return imagen
+	 */
 	public function recuperarImagen($id) {
 		$conexion = new Conexion();
 		$db = $conexion->conectar();
@@ -33,6 +51,11 @@ class Equipo {
 		}
 	}
 
+	/**
+	 * Esta función inserta directamente en la Base de Datos 
+	 * los valores que el usuario lleno en el formulario de 
+	 * agregar equipos
+	 */
 	public function añadirEquipo($modelodatos) {
 		$conexion = new Conexion();
 		$db = $conexion->conectar();
@@ -47,6 +70,11 @@ class Equipo {
 		$db->close();
 	}
 
+	/** 
+	* Esta función busca en la Base de Datos la información
+	* de un equipo en particular y la devuelve al programa
+	* principal
+	*/
 	public function buscarEquipos($id) {
 		$conexion = new Conexion();
 		$db = $conexion->conectar();
@@ -56,6 +84,13 @@ class Equipo {
 		return $equipo;
 		$db->close();
 	}
+
+
+	/**
+	 * Esta función actualiza los valores de un determinado 
+	 * equipo en la Base de Datos de acuaerdo a lo que el 
+	 * usuario cambio en editar equipos
+	 */
 
 	public function editarEquipo($modelodatos, $anterior) {
 		$conexion = new Conexion();
@@ -84,6 +119,14 @@ class Equipo {
 		$db->close();
 	}
 
+	/**
+	 * Esta funcion se encargar de eliminar de la Base de Datos
+	 * el registro que corresponda al id que recibio en el 
+	 * parametro
+	 *
+	 * @param [int] $id
+	 * @return boolean
+	 */
 	public function eliminarEquipo($id) {
 		$conexion = new Conexion();
 		$db = $conexion->conectar();
@@ -97,6 +140,13 @@ class Equipo {
 		$db->close();
 	}
 
+	/**
+	 * Esta función obtiene la ultima fila de la tabla
+	 * y le asigna el ultimo valor de autoincremento en 
+	 * ella para corregir la incorrecta enumeración
+	 *
+	 * @return void
+	 */
 	public function corregirIncremento() {
 		$conexion = new Conexion();
 		$db = $conexion->conectar();

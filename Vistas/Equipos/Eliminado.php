@@ -6,5 +6,8 @@ if($_GET) {
 	$control->corregirIncremento();
 	header("Location:Inventario.php");
 }
+else{
+	echo $respuesta;
+}
 
 ?>

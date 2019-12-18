@@ -7,6 +7,7 @@ $(document).on('click','#tabla tr', function(){
     }
 });
 
+
 $(document).ready(function () {   
     $('#tabla').DataTable({
 		"scrollX": false,
