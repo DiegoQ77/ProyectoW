@@ -182,6 +182,8 @@ $datos = $control-> obtenerListaEquipos();
 				</div>
 			</div>
 		</div>
+		<div class="espacio"></div>
+		<div class="espacio"></div>
 		<footer id="footer">
 			<p>Desarrollado por el grupo 4 ISF131 &copy;
 				<?=date( 'Y') ?>

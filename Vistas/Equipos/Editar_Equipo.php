@@ -23,6 +23,7 @@ $facultades = $control->obtenerListaFacultades();
 
 <body>
 	<div id="main-container">
+
 		<!-- CABECERA -->
 		<header id="header">
 			<div id="logo">
@@ -47,7 +48,7 @@ $facultades = $control->obtenerListaFacultades();
 				</ul>
 			</nav>
 		</header>
-		<div class="container-responsive">
+		<div class="container-fluid">
 			<div class="imagen">
 				<img class="equipo" src="Imagenes.php?id=<?php echo $data['codigo'];?>" width="300" height="300" />
 				<br>
@@ -215,10 +216,10 @@ $facultades = $control->obtenerListaFacultades();
 				</div>
 			</div>
 		</div>
-
-
-		<!-- PIE DE PAGINA -->
-		<footer id="footer">
+			
+		<div class="espacio"></div>
+				<!-- PIE DE PAGINA -->
+				<footer id="footer" style="position:absolute; bottom:0;">
 			<p>Desarrollado por el grupo 4 ISF131 &copy;
 				<?=date( 'Y') ?>
 			</p>
