@@ -121,7 +121,7 @@ $datos = $control-> obtenerListaEquipos();
 				if (isset($_SESSION['usuario'])){ echo 
 				"<td>
 				<a style =padding-right:5px; href='Editar_Equipo.php?id=".$datos[$i]["codigo"]."'><img src=../../assets/img/lapiz.png width=20 height=20 /></a>
-				<a style =padding-left:5px; data-toggle=modal  data-target=#modal5 href=#modal5><img src=../../assets/img/bote.png width=20 height=20 />
+				<a style =padding-left:5px; data-toggle=modal data-target=#modal5 href=#modal5><img src=../../assets/img/bote.png width=20 height=20 />
 				</a>
 							</td>";
 				}?>
@@ -202,7 +202,7 @@ $datos = $control-> obtenerListaEquipos();
       </div>
       <div class="modal-footer">
 		  <?php echo "
-		  <a href='Eliminado.php?id=".$datos[$i]["codigo"]."'>
+		  <a href='Eliminado.php?id=".$datos[$i-1]["codigo"]."'>
 		<button type=button class=btn btn-light>Eliminar</button>
 		</a>"; 
 		?>

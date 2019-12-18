@@ -61,7 +61,7 @@ Class Control_Inventario {
 
 	public function ctlEliminarEquipo() {
 		$equipo = new Equipo();
-		$id = $_POST['id'];
+		$id = $_GET['id'];
 		$respuesta = $equipo->eliminarEquipo($id);
 		return $respuesta;
 	}
