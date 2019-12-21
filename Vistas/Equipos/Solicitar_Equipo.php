@@ -43,9 +43,8 @@ $data = $control->recuperarEquipo();
 				</ul>
 			</nav>
 		</header>
-		<div class="container">
+		<div class="container" style=" max-width: 1200px;">
 			<form id="form1" action="Enviado.php" method="post">
-				<div class="container" style=" max-width: 1200px;">
 					<div class="form-group">
 						<label for="nombre">Nombre Completo:</label>
 						<input type="text" name="completo" class="form-control form-control-sm" required>
@@ -84,7 +83,6 @@ $data = $control->recuperarEquipo();
 							<button class="btn btn-light" type="button">Regresar</button>
 						</a>
 					</center>
-				</div>
 				<div class="modal" id="modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">

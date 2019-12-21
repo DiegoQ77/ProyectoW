@@ -47,11 +47,11 @@ $datos = $control-> obtenerListaEquipos();
 
 		<div class="listado">
 			<section class="principal">
-				<div class="container" style=" max-width: 1800px;">
+				<div class="container" style=" max-width: 1800px; padding-top:3vh;">
 					<div class="table">
 						<?php if (isset($_SESSION['usuario'])){ ?>
 						<a href="Agregar_Equipo.php">
-							<button type="button" style="float:right;" class="btn btn-light">Agregar Nuevo Equipo</button>
+							<button type="button"  style="float:right;" class="btn btn-light">Agregar Nuevo Equipo</button>
 						</a>
 						<?php } if(is_array($datos)){?>
 
@@ -117,9 +117,9 @@ $datos = $control-> obtenerListaEquipos();
 											<?php echo $datos[$i]['facultad']; ?>
 										</td>
 										<?php echo "
-				<td >
-					<a class=ver href='Ver_Equipo.php?id=".$datos[$i]['codigo']. "'></a>
-				</td> ";?>
+										<td>
+											<a class=ver href='Ver_Equipo.php?id=".$datos[$i]['codigo']. "'></a>
+										</td> ";?>
 									</tr>
 								</div>
 								<?php } ?>
@@ -184,7 +184,7 @@ $datos = $control-> obtenerListaEquipos();
 		</div>
 		<div class="espacio"></div>
 		<div class="espacio"></div>
-		<footer id="footer">
+		<footer id="footer" style="position:absolute; botton:0;">
 			<p>Desarrollado por el grupo 4 ISF131 &copy;
 				<?=date( 'Y') ?>
 			</p>

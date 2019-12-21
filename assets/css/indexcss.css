@@ -12,11 +12,6 @@
  box-sizing: border-box;
 }
 
-html,
-body {
- height: 100%;
- position: relative;
-}
 
 body{
     background: url(../img/bg.png);
@@ -44,15 +39,81 @@ a:hover{
     margin-bottom: 2vh;
     background: #F0F0F0;
 }
-#logo img{
-    padding-top: 35px;
-    float:left;
-    height: 17vh;
-    width: 20vw;
+
+@media (min-width: 600px) {
+    #logo img{
+        padding-top: 35px;
+        float:left;
+        height: 17vh;
+        width: 20vw;
+    }
+    
+.carousel-item img{
+    height:70vh;
+    width:60vw;
 }
+    .container{
+        font-size: 1.7vh;
+        padding-bottom: 8vh;
+        padding-top: 4vh;
+        }
+        
+        
+    #menu a{
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding-left: 44px;
+        padding-right: 42px;
+        transition: all 300ms;
+    }
+    .equipo{
+        width:25vw;
+        height: 42vh;
+        float:right;
+    }
+    
+  }
+  @media (max-width: 600px) {
+
+
+    #logo img{
+        padding-top: 35px;
+        width: 100%;
+    }
+    
+.carousel-item img{
+    height:50vh;
+    width:60vw;
+}
+    #menu a{
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding-left: 24px;
+        padding-right: 22px;
+        transition: all 300ms;
+    }
+    .equipo{
+        width:100%;
+        height: 40vh;
+        float:right;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+    }
+
+    .container{
+        font-size: 2.5vw;
+        padding-top: 2vh;
+        padding-bottom: 8vh;
+        }
+        
+    
+  }
 #logo a{
     float:right;
-    font-size: 30px;
+    text-align: center;
+    font-size: 2.5vh;
     letter-spacing: 4.5px;
     font-family: 'Open Sans', Helvetica, Arial;
     text-transform: uppercase;
@@ -70,6 +131,7 @@ a:hover{
 }
 /*MENU*/
 #menu{
+    font-size: 1.5vh;
     clear:both;
     background: #222;
     color: white;
@@ -80,22 +142,12 @@ a:hover{
     list-style: none;
     text-decoration: none;
     margin: 0px auto;
-    margin-left: 25px;
     float: right;
 }
 #menu ul li{
     line-height: 55px;
     float:left;
     border-right: 4px solid #363636;
-}
-
-#menu a{
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding-left: 44px;
-    padding-right: 42px;
-    transition: all 300ms;
 }
 
 #menu a:first-child{
@@ -132,12 +184,6 @@ a:hover{
   to {opacity: 1}
 }
 
-
-
-.carousel-item img{
-    height:70vh;
-    width:60vw;
-}
 /*FOOTER*/
 #footer{
     text-align: center;
@@ -145,12 +191,12 @@ a:hover{
     color: white;
     background: #222222;
     border-top: 4px solid #01B1EA;
-    position: relative;
+    position: fixed;
     bottom: 0;
     width: 100%;
     height: 40px;
     color: white;
-    padding-bottom: 2vh;
+    padding-bottom: 8px;
 }
 
 .main-container {
@@ -158,4 +204,13 @@ a:hover{
     overflow: hidden;
     display: block;
     position: relative;
+   }
+
+
+    input[type=file]{
+       font-size: 1.5vh;
+   }
+
+   .btn{
+    font-size: 1.5vh;
    }

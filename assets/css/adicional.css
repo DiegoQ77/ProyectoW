@@ -48,28 +48,14 @@
     float: right;
   }
 
-  .listado{
-      margin-top: 5vh;
-  }
-
-
+.espacio{
+    padding-top: 2vh;
+}
 
 label{
     font-weight: bold;
-}
-
-.imagen{
-    float: right;
-    padding-top:5.5vh;
-    padding-right: 1.5vw;
+    font-size: 1.7vh;
 }
 
 
 
-.ver{
-    font-size: 2vh;
-}
-
-.espacio{
-    padding-top: 3vh;
-}

@@ -6,7 +6,6 @@ $personas = $control->obtenerListaPersonas();
 $sedes = $control->obtenerListaSedes();
 $facultades = $control->obtenerListaFacultades();
 ?>
-
 <!DOCTYPE HTML>
 <html lang="es">
 
@@ -48,18 +47,19 @@ $facultades = $control->obtenerListaFacultades();
 				</ul>
 			</nav>
 		</header>
-		<div class="container-fluid">
-			<div class="imagen">
-				<img class="equipo" src="Imagenes.php?id=<?php echo $data['codigo'];?>" width="300" height="300" />
-				<br>
+
+		<div class="container" style="max-width: 1400px;">
+			<div class="imagen" style="float: right;">
+				<img class="equipo" src="Imagenes.php?id=<?php echo $data['codigo'];?>" />
 				<br>
 				<label for="cambiar">Cambiar Imagen:</label>
+				<br>
 
 				<input type="file" name="imagen" id="file" accept="image/*" />
 				<p id="mensaje"></p>
 			</div>
 			<form action="Actualizado.php" method="post" id="form" enctype="multipart/form-data">
-				<div class="container" style="float: left; padding-left:5vw; max-width: 900px;">
+				<div class="container" style="float:left; max-width: 800px; padding-top:0;">
 					<div class="form-group">
 						<label for="categoria">Categoria:</label>
 						<input type="text" value="<?php echo $data['categoria'];?>" name="categoria" class="form-control form-control-sm" required>
@@ -138,6 +138,7 @@ $facultades = $control->obtenerListaFacultades();
 						</a>
 					</center>
 				</div>
+				
 				<div class="modal" id="modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
@@ -216,14 +217,13 @@ $facultades = $control->obtenerListaFacultades();
 				</div>
 			</div>
 		</div>
-			
-		<div class="espacio"></div>
-				<!-- PIE DE PAGINA -->
-				<footer id="footer" style="position:absolute; bottom:0;">
+		<!-- PIE DE PAGINA -->
+		<footer id="footer">
 			<p>Desarrollado por el grupo 4 ISF131 &copy;
 				<?=date( 'Y') ?>
 			</p>
 		</footer>
+		
 	</div>
 	<script type="text/javascript" src="../../assets/js/jquery/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="../../assets/js/inventario.js"></script>

@@ -175,7 +175,7 @@ $facultades = $control->obtenerListaFacultades();
 				</div>
 			</div>
 		</div>
-		<div class="espacio"></div>
+		
 		<!-- PIE DE PAGINA -->
 		<footer id="footer">
 			<p>Desarrollado por el grupo 4 ISF131 &copy;
@@ -183,14 +183,14 @@ $facultades = $control->obtenerListaFacultades();
 			</p>
 		</footer>
 	</div>
-	<script type="text/javascript" src="../../assets/js/jquery/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="../../assets/js/inventario.js"></script>
-	<script type="text/javascript" src="../../assets/js/formularios.js"></script>
-	<script type="text/javascript" src="../../assets/Bootstrap/js/bootstrap.min.js"></script>
-	<script src="../../assets/js/popper/popper.min.js"></script>
-	<script type="text/javascript" src="../../assets/DataTables/datatables.min.js"></script>
-	<script type="text/javascript" src="../../assets/js/inicio.js"></script>
-	<script type="text/javascript" src="../../assets/Datatables/DataTables-1.10.18/js/dataTables.responsive.min.js"></script>
 </body>
+<script type="text/javascript" src="../../assets/js/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../../assets/js/inventario.js"></script>
+<script type="text/javascript" src="../../assets/js/formularios.js"></script>
+<script type="text/javascript" src="../../assets/Bootstrap/js/bootstrap.min.js"></script>
+<script src="../../assets/js/popper/popper.min.js"></script>
+<script type="text/javascript" src="../../assets/DataTables/datatables.min.js"></script>
+<script type="text/javascript" src="../../assets/js/inicio.js"></script>
+<script type="text/javascript" src="../../assets/Datatables/DataTables-1.10.18/js/dataTables.responsive.min.js"></script>
 
 </html>
