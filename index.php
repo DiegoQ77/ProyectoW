@@ -48,7 +48,7 @@
 							<img class="d-block w-100" src="../../assets/img/img1.jpg">
 						</div>
 						<div class="carousel-item">
-							<img class="d-block w-100" src="../../assets/img/img2.jpg">
+							<img class="d-block w-100" src="../../assets/img/img2.jpeg">
 						</div>
 						<div class="carousel-item">
 							<img class="d-block w-100" src="../../assets/img/img3.jpg">
