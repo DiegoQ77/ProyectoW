@@ -106,7 +106,7 @@ $facultades = $control->obtenerListaFacultades();
 					</div>
 					<div class="  col-md-6">
 						<label for="exampleFormControlTextarea1">Cantidad:</label>
-						<input type="number" class="form-control form-control-sm" name="cantidad" min="0" required>
+						<input type="number" class="form-control form-control-sm" name="cantidad" min="0" max="1000" required>
 					</div>
 				</div>
 				<div class=" ">

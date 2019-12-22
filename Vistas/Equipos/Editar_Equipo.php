@@ -126,7 +126,7 @@ $facultades = $control->obtenerListaFacultades();
 						</div>
 						<div class="form-group col-md-6">
 							<label for="exampleFormControlTextarea1">Cantidad:</label>
-							<input type="number" value="<?php echo $data['cantidad'];?>" class="form-control form-control-sm" name="cantidad" min="0" required>
+							<input type="number" value="<?php echo $data['cantidad'];?>" class="form-control form-control-sm" name="cantidad" min="0" max="1000" required>
 						</div>
 					</div>
 					<input type="hidden" name="id" value="<?php echo $data['codigo']?>" />

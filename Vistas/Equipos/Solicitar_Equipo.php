@@ -51,11 +51,11 @@ $data = $control->recuperarEquipo();
 					</div>
 					<div class="form-group">
 						<label for="cedula">Cedula:</label>
-						<input type="text" name="cedula" class="form-control form-control-sm" required>
+						<input type="text" name="cedula" class="form-control form-control-sm" required pattern="\d{1,2}[\-]\d{1,4}[\-]\d{1,6}">
 					</div>
 					<div class="form-group">
 						<label for="telefono">Teléfono:</label>
-						<input type="text" name="telefono" class="form-control form-control-sm" required>
+						<input type="text" name="telefono" class="form-control form-control-sm" required pattern="[0-9]{3,4}-[0-9]{4}"> 
 					</div>
 					<div class="form-group">
 						<label for="ocupacion">Ocupación:</label>
