@@ -84,7 +84,6 @@ $datos = $control-> obtenerListaEquipos();
 											Facultad
 										</th>
 										<th style="width: 1%"></th>
-										<?php } ?>
 									</tr>
 								</div>
 							</thead>
@@ -122,7 +121,11 @@ $datos = $control-> obtenerListaEquipos();
 										</td> ";?>
 									</tr>
 								</div>
-								<?php } ?>
+								<?php } }
+								else{
+									echo "No hay Datos";
+								}
+								?>
 							</tbody>
 						</table>
 					</div>
@@ -194,7 +197,7 @@ $datos = $control-> obtenerListaEquipos();
 <script type="text/javascript" src="../../assets/js/inventario.js"></script>
 <script type="text/javascript" src="../../assets/Bootstrap/js/bootstrap.min.js"></script>
 <script src="../../assets/js/popper/popper.min.js"></script>
-<script type="text/javascript" src="../../assets/Datatables/datatables.min.js"></script>
+<script type="text/javascript" src="../../assets/DataTables/datatables.min.js"></script>
 <script type="text/javascript" src="../../assets/js/inicio.js"></script>
 </body>
 

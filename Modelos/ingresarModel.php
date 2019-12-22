@@ -1,5 +1,5 @@
 <?php
-require_once("conexion.php");
+require_once("../../Modelos/Conexion.php");
 /**
  * Esta clase realiza diferentes consultas sobre la base
  * de datos de usuarios

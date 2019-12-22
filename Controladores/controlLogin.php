@@ -1,6 +1,5 @@
 <?php
-require_once '../../Modelos/conexion.php';
-require_once '../../Modelos/ingresarModel.php';
+require_once("../../Modelos/ingresarModel.php");
 
 /**
  * Esta clase se encarga de controlar el proceso de login

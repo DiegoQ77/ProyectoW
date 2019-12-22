@@ -49,6 +49,7 @@ $facultades = $control->obtenerListaFacultades();
 		</header>
 
 		<div class="container" style="max-width: 1400px;">
+		<form action="Actualizado.php" method="post" id="form" enctype="multipart/form-data">
 			<div class="imagen" style="float: right;">
 				<img class="equipo" src="Imagenes.php?id=<?php echo $data['codigo'];?>" />
 				<br>
@@ -56,9 +57,8 @@ $facultades = $control->obtenerListaFacultades();
 				<br>
 
 				<input type="file" name="imagen" id="file" accept="image/*" />
-				<p id="mensaje"></p>
+				<p id="mensaje" style="color:red;"></p>
 			</div>
-			<form action="Actualizado.php" method="post" id="form" enctype="multipart/form-data">
 				<div class="container" style="float:left; max-width: 800px; padding-top:0;">
 					<div class="form-group">
 						<label for="categoria">Categoria:</label>
