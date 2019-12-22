@@ -67,7 +67,7 @@ $data = $control->recuperarEquipo();
 					</div>
 					<div class="form-group">
 						<label for="pedido">Cantidad a Solicitar:</label>
-						<input type="number" name="pedido" class="form-control form-control-sm" required>
+						<input type="number" name="pedido" class="form-control form-control-sm" min="0" max="1000" required>
 					</div>
 					<div class="form-group">
 						<label for="motivo">Motivo de Solicitud:</label>
