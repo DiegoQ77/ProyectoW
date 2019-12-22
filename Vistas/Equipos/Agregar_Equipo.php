@@ -183,7 +183,6 @@ $facultades = $control->obtenerListaFacultades();
 			</p>
 		</footer>
 	</div>
-</body>
 <script type="text/javascript" src="../../assets/js/jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="../../assets/js/inventario.js"></script>
 <script type="text/javascript" src="../../assets/js/formularios.js"></script>
@@ -192,5 +191,6 @@ $facultades = $control->obtenerListaFacultades();
 <script type="text/javascript" src="../../assets/DataTables/datatables.min.js"></script>
 <script type="text/javascript" src="../../assets/js/inicio.js"></script>
 <script type="text/javascript" src="../../assets/Datatables/DataTables-1.10.18/js/dataTables.responsive.min.js"></script>
+</body>
 
 </html>
